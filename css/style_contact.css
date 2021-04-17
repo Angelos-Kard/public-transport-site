@@ -16,5 +16,75 @@ body {
     border-style: solid;
     border-color: #134153;
     box-shadow: 1px 2px 10px #134153;
+    text-align:center;
+}
+
+.main-title h3 {
+    font-size: 18px;
+}
+
+.container-first {
+    display: grid;
+    grid-template: 1fr / 1fr 1fr;
+}
+
+.left {
+    font-size: 18px;
+    justify-self: center;
+    text-align: left;
+    grid-row: 1;
+    grid-column: 1;
+    padding-top: 70px;
     
+}
+
+.right {
+    width: 100%;
+    grid-row: 1;
+    grid-column: 2;
+}
+
+#gmap_canvas {
+    height: 400px;
+    width: 100%;
+    
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.left li {
+    padding: 8px;
+    
+    height: 54px;
+    padding-left: 60px;
+    padding-top: 2px;
+    /* list-style-image: url('../media/icons/phone_40.png'); */
+}
+
+#phone {
+    background: url('../media/icons/phone2_40.png') no-repeat left top;
+}
+
+#fax {
+    background: url('../media/icons/fax_40.png') no-repeat left top;
+}
+
+#mail {
+    background: url('../media/icons/mail_40.png') no-repeat left top;
+}
+
+#adress {
+    background: url('../media/icons/bus_40.png') no-repeat left top;
+}
+
+li a:link {
+    color: #134153;
+}
+
+li a:hover {
+    color: #003983;
 }
