@@ -1,0 +1,29 @@
+form {
+    width: 50%;
+    margin: 1em;
+    display: flex;
+    flex-flow: column;
+}
+
+fieldset {
+    margin: 1em;
+    padding: 1em;
+    display: flex;
+    flex-flow: column;
+    border-radius: 5px;
+    box-shadow: 2px 2px 15px #134153;
+}
+
+fieldset input {
+    margin: 1em;
+    padding:.5em;
+}
+
+label {
+    padding: 0em 1em;
+}
+
+.submitbutton {
+    margin: 1em;
+    color: #134153;
+}

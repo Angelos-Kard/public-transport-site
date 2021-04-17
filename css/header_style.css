@@ -1,0 +1,55 @@
+header {
+    background: linear-gradient( #134153, #2e828b ) ;
+}
+
+h1 {
+    color: #fcfaf1;
+    padding: 50px 25px;
+    margin: 0 auto;
+}
+
+nav {
+    background-color: #2e828b;
+    border-style: solid;
+    border-color: #134153;
+    border-width: 1px 0px;
+}
+
+.show {
+    position: sticky;
+    top: 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-flow: row wrap ;
+    margin: 0 auto;
+    padding: 0;
+}
+
+nav ul li {
+    padding: 1em;
+    transition: background-color;
+    transition-duration: .5s;
+    display: flex;
+    align-items: center;
+    flex: 1 1 auto;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+nav ul li:hover {
+    background: #134153;
+}
+
+nav ul li a {
+    color: #fcfaf1;
+    text-decoration: none;
+    transition: text-decoration;
+    transition-duration: .25s; 
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}

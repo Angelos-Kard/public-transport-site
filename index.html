@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="gr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project</title>
+    <!-- css files -->
+    <link href="css/style.css"        rel="stylesheet" type="text/css">
+    <link href="css/header_style.css" rel="stylesheet" type="text/css">
+    <link href="css/footer_style.css" rel="stylesheet" type="text/css">
+    <link href="css/form_style.css"   rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <header>
+        <a id="top-of-site"></a>
+        <h1>Αστικές Συγκοινωνίες</h1>
+    </header>
+    <nav>
+        <ul>
+            <li>
+                <a href="news.html">Ανακοινώσεις</a>
+            </li>
+            <li>
+                <a href="">Δρομολόγια</a>
+            </li>
+            <li>
+                <a href="tickets.html">Εισιτήρια</a>
+            </li>
+            <li>
+                <a href="contact.html">Επικοινωνία</a>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <div class="welcome">
+        <h2>Καλώς ήλθατε</h2>
+            <p> Η ιστοσελίδα αποτελεί εφαρμογή διαχείρισης δρομολογίων των αστικών λεωφορείων της πόλης μας.
+                Μπορείτε να ενημερωθείτε σχετικά με τα δρομολόγιά μας και τις τιμές των εισιτιρίων μας. Ταυτόχρονα,
+                στις ανακοινώσεις μπορείτε να πληροφορηθείτε σχετικά με τα τελευταία νέα των συγκοινωνιών της περιοχής.  
+                Μη διστάσετε να επικοινωνήσετε μαζί μας.
+            </p>
+        </div>
+        <div class="bestpath">
+            <h2>Εύρεση διαδρομής</h2>
+            <form>
+                <fieldset>
+                    <label for="line"> Επίλεξε γραμμή: </label>
+                    <input list="line" name="line" placeholder="Γραμμή Λεωφορείου">
+                    <datalist id="line">
+                    </datalist>
+                    <label for="station"> Επίλεξε στάση: </label>
+                    <input list="station" name="station" placeholder="Στάση Λεωφορείου">
+                    <datalist id="station">
+                    </datalist>
+                </fieldset>
+                <fieldset>
+                    <label for="desination"> Επίλεξε προορισμό: </label>
+                    <input list="destination" name="destination" placeholder="Στάση Προορισμού">
+                    <datalist id="destination">
+                    </datalist>
+                </fieldset>
+                <input type="submit" value="Βέλτιστη Διαδρομή" class="submitbutton">
+            </form>
+        </div>
+        <div>
+            <h2>Τελευταίες ανακοινώσεις</h2>
+        </div>
+        <div>
+            <h2>Χρήσιμες πληροφορίες</h2>
+            <ol>
+                <li>
+                    <a href="">Γραμμές λεωφορείων.</a>
+                </li>
+                <li>
+                    <a href="">Εκδοτήρια.</a>
+                </li>
+                <li>
+                    <a href="">Έκδοση κάρτας.</a>
+                </li>
+                <li>
+                    <a href="">Χάρτης.</a>
+                </li>
+            </ol>
+        </div>
+    </main>
+    <footer>
+        <ul id=footermenu>
+            <li>
+                <a href="news.html">Ανακοινώσεις</a>
+            </li>
+            <li>
+                <a href="">Δρομολόγια</a>
+            </li>
+            <li>
+                <a href="tickets.html">Εισιτήρια</a>
+            </li>
+            <li>
+                <a href="contact.html">Επικοινωνία</a>
+            </li>
+        </ul>
+        <div class="infos">
+            <ul id=contactinfo>
+                <li>
+                    Διεύθυνση: Οδός Αβύσσου 0
+                </li>
+                <li>
+                    Τηλέφωνο: +30 0123456789
+                </li>
+                <li>
+                    Email: www.someone@email.com
+                </li>
+            </ul>
+            <ul id="otherinfo">
+                <li>
+                    <a href="">Πολιτική cookies</a>
+                </li>
+                <li>
+                    <a href="">Όροι Χρήσης</a>
+                </li>
+                <li>
+                    <a href="">Δεδομένα</a>
+                </li>
+            </ul>
+            <span id="siteinfo">Η ιστοσελίδα αναπτύχθηκε στα πλαίσια του μαθήματος Προγραμματισμός Διαδικτύου 
+                του Τμήματος Ηλεκτρολόγων Μηχανικών & Τεχνολογίας Υπολογιστών του Πανεπιστημίου Πατρών
+                το ακαδημαϊκό έτος 2020-2021.
+            </span>
+            <a href="#top-of-site">^</a>
+        </div>
+    </footer>
+    <!-- scripts -->
+    <script src="scripts/nav.js"></script>
+</body>
+</html>
