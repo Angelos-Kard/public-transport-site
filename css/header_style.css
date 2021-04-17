@@ -37,6 +37,7 @@ nav ul li {
     flex: 1 1 auto;
     white-space: nowrap;
     box-sizing: border-box;
+    justify-content: center;
 }
 
 nav ul li:hover {
@@ -52,4 +53,5 @@ nav ul li a {
 
 nav ul li a:hover {
     text-decoration: underline;
+    color: white;
 }
