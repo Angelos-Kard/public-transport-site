@@ -5,7 +5,7 @@ let scrollPosition = 0;
 
 window.addEventListener("scroll", function () {
 
-    if( (document.body.getBoundingClientRect()).top > scrollPosition ) { 
+    if( window.pageYOffset >= navbar.offsetTop ) { 
         navbar.className = "show"; 
     }
     else {
