@@ -13,7 +13,7 @@
 <body>
     <header>
         <a id="top-of-site"></a>
-        <h1>Αστικές Συγκοινωνίες</h1>
+        <h1 id = "title">Αστικές Συγκοινωνίες</h1>
     </header>
     <nav>
         <ul>
@@ -23,11 +23,16 @@
             <li>
                 <a href="route.html">Δρομολόγια</a>
             </li>
-            <li>
-                <a href="">Εισιτήρια</a>
+            <li class = "dropdown">
+                <a href="tickets.html">Εισιτήρια</a>
+                <div class="dropdown-content">
+                    <a href="tickets.html#ticket-prices">Τιμές Εισιτηρίων</a>
+                    <a href="tickets.html#monthly-ticket">Μηνιαία Κάρτα</a>
+                    <a href="tickets.html#ticket-office">Εκδοτήρια</a>
+                </div>
             </li>
             <li>
-                <a href="">Επικοινωνία</a>
+                <a href="contact.html">Επικοινωνία</a>
             </li>
         </ul>
     </nav>
@@ -48,16 +53,16 @@
     <footer>
         <ul id=footermenu>
             <li>
-                <a href="">Ανακοινώσεις</a>
+                <a href="news.html">Ανακοινώσεις</a>
             </li>
             <li>
-                <a href="">Δρομολόγια</a>
+                <a href="route.html">Δρομολόγια</a>
             </li>
             <li>
-                <a href="">Εισιτήρια</a>
+                <a href="tickets.html">Εισιτήρια</a>
             </li>
             <li>
-                <a href="">Επικοινωνία</a>
+                <a href="contact.html">Επικοινωνία</a>
             </li>
         </ul>
         <div class="infos">
@@ -93,5 +98,6 @@
     <!-- scripts -->
     <script src="scripts/nav.js"></script>
     <script src="scripts/lines.js"></script>
+    <script src="scripts/redirect.js"></script>
 </body>
 </html>
