@@ -1,0 +1,37 @@
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #fcfaf1 ;
+    color: #134153;
+    margin: 0;
+}
+
+h2 {
+    background-color: #8ad8ed;
+    padding: 1em;
+    margin: 0;
+    border-color: #134153;
+    border-style: solid;
+    border-width: 0px 0px 1px 1px;
+    box-shadow: 1px 1px 10px #134153;
+}
+
+.article {
+    list-style: none;
+    border-left: .5em solid #8ad8ed;
+    padding: 1em;
+    margin: 2em;
+}
+
+.article span {
+    font-style: italic;
+    padding: 5px;
+    margin: 1em;
+}
+
+.article article {
+    margin: .5em;
+}

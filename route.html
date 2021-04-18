@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ανακοινώσεις</title>
     <!-- css files -->
-    <link href="css/news_style.css"   rel="stylesheet" type="text/css">
+    <link href="css/route_style.css"  rel="stylesheet" type="text/css">
     <link href="css/header_style.css" rel="stylesheet" type="text/css">
     <link href="css/footer_style.css" rel="stylesheet" type="text/css">
 </head>
@@ -32,8 +32,18 @@
         </ul>
     </nav>
     <main>
-        <h2>Ανακοινώσεις</h2>
-        <ul id="news"></ul>
+        <h2>Δρομολόγια</h2>
+        <p class="routeWelcome">
+            Ενημερωθείτε σχετικά με τις διαδρομές των αστικών λεωφορείων της πόλης μας.
+            Οι ώρες και οι στάσεις που ακολουθούν οι γραμμές είναι ανανεωμένες σύμφωνα με τις
+            τελευταίες ανακοινώσεις. Παρακάτω μπορείτε να δείτε αναλυτικά όλες τις πληροφορίες
+            που ψάχνεται.
+        </p>
+        <div class="dromologia">
+            <ul id="lines" class="lines">
+                <li><em>Γραμμές</em></li>
+            </ul>
+        </div>
     </main>
     <footer>
         <ul id=footermenu>
@@ -82,6 +92,6 @@
     </footer>
     <!-- scripts -->
     <script src="scripts/nav.js"></script>
-    <script src="scripts/news.js"></script>
+    <script src="scripts/lines.js"></script>
 </body>
 </html>
