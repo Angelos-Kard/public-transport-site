@@ -9,7 +9,21 @@ body {
     color: #134153;
 }
 
-.main-title {
+.main-title h2 {
+    background-color: #8ad8ed;
+    padding: 1em;
+    margin: 0;
+    border-color: #134153;
+    border-style: solid;
+    border-width: 0px 0px 1px 1px;
+    box-shadow: 1px 1px 10px #134153;
+}
+
+/* .main-title h3 {
+    font-size: 16px;
+} */
+
+.main-box {
     margin: 1em;
     padding: 1em;
     border-width: 1px;
@@ -19,9 +33,6 @@ body {
     text-align:center;
 }
 
-.main-title h3 {
-    font-size: 18px;
-}
 
 .container-first {
     display: grid;
@@ -87,4 +98,39 @@ li a:link {
 
 li a:hover {
     color: #003983;
+}
+
+.div-form
+{
+    display: grid;
+    grid-template: 1fr / 1fr;
+}
+
+.div-form h2 {
+    grid-row: 1;
+    grid-column: 1;
+}
+
+form {
+    grid-row: 2;
+    grid-column: 1;
+    justify-self: center;
+    text-align: left;
+    text-indent: -1em;
+}
+
+#fname, #lname, #subject {
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+
+#fname, #lname {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.submitbutton{
+    width: 30%;
+    height: 8%;
+    font-size: 16px;
 }
