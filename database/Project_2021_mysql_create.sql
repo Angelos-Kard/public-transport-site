@@ -50,7 +50,7 @@ CREATE TABLE `ExeiEisitirio` (
 );
 
 CREATE TABLE `ExeiMiniaia` (
-	`miniaiaID` DATE NOT NULL,
+	`miniaiaID` INT NOT NULL,
 	`xristisID` INT NOT NULL,
 	`imerominiaEnarksis` DATE NOT NULL,
 	PRIMARY KEY (`miniaiaID`,`xristisID`)
