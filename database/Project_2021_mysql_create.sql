@@ -36,7 +36,7 @@ CREATE TABLE `Eisitirio` (
 
 CREATE TABLE `MiniaiaKarta` (
 	`id` INT NOT NULL AUTO_INCREMENT,
-	`typos` VARCHAR(255) NOT NULL AUTO_INCREMENT,
+	`typos` VARCHAR(255) NOT NULL,
 	`timi` FLOAT NOT NULL,
 	`zoni` varchar(1) NOT NULL,
 	PRIMARY KEY (`id`)
