@@ -12,26 +12,35 @@ body {
 h2 {
     background-color: #8ad8ed;
     padding: 1em;
-    margin: 0;
+    margin-top: 0;
+    margin-bottom: 3em;
     border-color: #134153;
     border-style: solid;
     border-width: 0px 0px 1px 1px;
     box-shadow: 1px 1px 10px #134153;
 }
 
+ul {
+    padding: 0;
+}
+
 .article {
+    position: unset;
     list-style: none;
-    border-left: .5em solid #8ad8ed;
-    padding: 1em;
-    margin: 2em;
+    border-left: .5em solid #2e828b;
+    background-color: #8ad8ed;
+    padding: 3em;
+    margin: 1px;
+    margin-right: 3em;
+    margin-left: 3em;
 }
 
 .article span {
     font-style: italic;
-    padding: 5px;
+    padding: 1em;
     margin: 1em;
 }
 
 .article article {
-    margin: .5em;
+    margin: 1em;
 }

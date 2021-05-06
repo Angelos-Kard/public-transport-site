@@ -9,6 +9,10 @@ body {
     color: #134153;
 }
 
+h2 {
+    margin: 1em;
+}
+
 .welcome {
     margin: 1em;
     padding: 1em;
@@ -16,4 +20,17 @@ body {
     border-style: solid;
     border-color: #134153;
     box-shadow: 1px 2px 10px #134153;
+}
+
+.articleNews {
+    background-color: #8ad8ed;
+    margin: 2em;
+    padding: 1em;
+    border: 1px solid #134153;
+    box-shadow: 1px 1px 10px #134153;
+}
+
+.articleNews:hover {
+    cursor: pointer;
+    box-shadow: 1px 1px 10px #2e828b;
 }

@@ -1,4 +1,4 @@
-// news = [ ["date","title","article","related articles","related links"], ... ]
+// news = [ ["date","title","article","id"], ... ]
 
 const newsList = [
     [
@@ -7,8 +7,7 @@ const newsList = [
         "Λόγω της αύξησης των κρουσμάτων της πανδημίας στη χώρας μας και σε συνέχεια των οδηγειών προστασίας των επιβατών \
         μας αλλάζουμε τα δρομολόγια των γραμμών μας. Οι αλλαγές ξεκινάνε από Δευτέρα 19 του μήνα και θα ισχύσουν μέχρι \
         νεότερη ανακοίνωση. Περισσότερες πληροφορίες μπορείτε να βρείτε στα ενημερωμένα δρομολόγιά μας στο παρακάτω. ",
-        "",
-        ""
+        "newDromologia",
     ],
     [
         "19/9/2020",
@@ -19,38 +18,14 @@ const newsList = [
         υπεχρεωτικά μάσκα και τηρούμε την απαραίτητη απόσταση στις στάσεις και στις θέσεις των λεωφορείων. Αποφεύγουμε \
         τις μη υποχρεωτικές μετακινήσεις μας καθώς και τις μετακινήσεις σε περίπτωση που παρουσιάζουμε συπτώματα ίωσης \
         Παρακαλούμε να κυκλοφορείτε με υπευθυνότητα, σας ευχαριστούμε για την κατανόησή σας.",
-        "",
-        ""
+        "remainSafe",
     ],
     [
         "29/8/2020",
         "Έκδοση μηνιαίας κάρτας",
         "Για το μήνα Σεπτέμβρη η έκδοση μηνιαίας κάρτας ξεκινάει όπως κάθε μήνα από τη πρώτη του μέρα και ισχύει έως το τέλος του.\
         Αναλυτικές πληροφορίες σχετικά με τις τιμές και τα προϊόντα μας μπορείτε να βρείτε στα εισιτήρια.",
-        "",
-        ""
+        "card",
     ]
 ];
 
-const news = document.getElementById("news");
-
-for( let i = 0 ; i < newsList.length ; i++ ) {
-
-    let newHeadline = document.createElement("div");
-    newHeadline.className = "article";
-
-    let headlineTitle = document.createElement("h3");
-    headlineTitle.textContent = newsList[i][1];
-    newHeadline.appendChild(headlineTitle)
-
-    let headlineDate = document.createElement("span");
-    headlineDate.textContent = "Ημερομηνία: " + newsList[i][0];
-    newHeadline.appendChild(headlineDate);
-
-    let headlineArticle = document.createElement("article");
-    headlineArticle.textContent = newsList[i][2];
-    newHeadline.appendChild(headlineArticle);
-
-    news.appendChild(newHeadline);
-
-}
