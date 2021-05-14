@@ -1,136 +1,139 @@
-html {
-    font-family: Arial, Helvetica, sans-serif;
-    scroll-behavior: smooth;
-}
-
-body {
-    margin: 0;
-    background-color: #fcfaf1 ;
-    color: #134153;
-}
-
-.main-title h2 {
-    background-color: #8ad8ed;
-    padding: 1em;
-    margin: 0;
-    border-color: #134153;
-    border-style: solid;
-    border-width: 0px 0px 1px 1px;
-    box-shadow: 1px 1px 10px #134153;
-}
-
-/* .main-title h3 {
-    font-size: 16px;
-} */
-
-.main-box {
-    margin: 1em;
-    padding: 1em;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #134153;
-    box-shadow: 1px 2px 10px #134153;
-    text-align:center;
-}
-
-
-.container-first {
-    display: grid;
-    grid-template: 1fr / 1fr 1fr;
-}
-
-.left {
-    font-size: 18px;
-    justify-self: center;
-    text-align: left;
-    grid-row: 1;
-    grid-column: 1;
-    padding-top: 70px;
+@media only screen and (min-width: 992px) {
+    html {
+        font-family: Arial, Helvetica, sans-serif;
+        scroll-behavior: smooth;
+    }
     
-}
-
-.right {
-    width: 100%;
-    grid-row: 1;
-    grid-column: 2;
-}
-
-#gmap_canvas {
-    height: 400px;
-    width: 100%;
+    body {
+        margin: 0;
+        background-color: #fcfaf1 ;
+        color: #134153;
+    }
     
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.left li {
-    padding: 8px;
+    .main-title h2 {
+        background-color: #8ad8ed;
+        padding: 1em;
+        margin: 0;
+        border-color: #134153;
+        border-style: solid;
+        border-width: 0px 0px 1px 1px;
+        box-shadow: 1px 1px 10px #134153;
+    }
     
-    height: 54px;
-    padding-left: 60px;
-    padding-top: 2px;
-    /* list-style-image: url('../media/icons/phone_40.png'); */
+    /* .main-title h3 {
+        font-size: 16px;
+    } */
+    
+    .main-box {
+        margin: 1em;
+        padding: 1em;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #134153;
+        box-shadow: 1px 2px 10px #134153;
+        text-align:center;
+    }
+    
+    
+    .container-first {
+        display: grid;
+        grid-template: 1fr / 1fr 1fr;
+    }
+    
+    .left {
+        font-size: 18px;
+        justify-self: center;
+        text-align: left;
+        grid-row: 1;
+        grid-column: 1;
+        padding-top: 70px;
+        
+    }
+    
+    .right {
+        width: 100%;
+        grid-row: 1;
+        grid-column: 2;
+    }
+    
+    #gmap_canvas {
+        height: 400px;
+        width: 100%;
+        
+    }
+    
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .left li {
+        padding: 8px;
+        
+        height: 54px;
+        padding-left: 60px;
+        padding-top: 2px;
+        /* list-style-image: url('../media/icons/phone_40.png'); */
+    }
+    
+    #phone {
+        background: url('../media/icons/phone2_40.png') no-repeat left top;
+    }
+    
+    #fax {
+        background: url('../media/icons/fax_40.png') no-repeat left top;
+    }
+    
+    #mail {
+        background: url('../media/icons/mail_40.png') no-repeat left top;
+    }
+    
+    #adress {
+        background: url('../media/icons/bus_40.png') no-repeat left top;
+    }
+    
+    li a:link {
+        color: #134153;
+    }
+    
+    li a:hover {
+        color: #003983;
+    }
+    
+    .div-form
+    {
+        display: grid;
+        grid-template: 1fr / 1fr;
+    }
+    
+    .div-form h2 {
+        grid-row: 1;
+        grid-column: 1;
+    }
+    
+    form {
+        grid-row: 2;
+        grid-column: 1;
+        justify-self: center;
+        text-align: left;
+        text-indent: -1em;
+    }
+    
+    #fname, #lname, #subject {
+        margin-bottom: 20px;
+        margin-top: 5px;
+    }
+    
+    #fname, #lname {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    
+    .submitbutton{
+        width: 30%;
+        height: 8%;
+        font-size: 16px;
+    }
 }
 
-#phone {
-    background: url('../media/icons/phone2_40.png') no-repeat left top;
-}
-
-#fax {
-    background: url('../media/icons/fax_40.png') no-repeat left top;
-}
-
-#mail {
-    background: url('../media/icons/mail_40.png') no-repeat left top;
-}
-
-#adress {
-    background: url('../media/icons/bus_40.png') no-repeat left top;
-}
-
-li a:link {
-    color: #134153;
-}
-
-li a:hover {
-    color: #003983;
-}
-
-.div-form
-{
-    display: grid;
-    grid-template: 1fr / 1fr;
-}
-
-.div-form h2 {
-    grid-row: 1;
-    grid-column: 1;
-}
-
-form {
-    grid-row: 2;
-    grid-column: 1;
-    justify-self: center;
-    text-align: left;
-    text-indent: -1em;
-}
-
-#fname, #lname, #subject {
-    margin-bottom: 20px;
-    margin-top: 5px;
-}
-
-#fname, #lname {
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-.submitbutton{
-    width: 30%;
-    height: 8%;
-    font-size: 16px;
-}
