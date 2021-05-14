@@ -1,17 +1,27 @@
+header {
+    background: linear-gradient( #134153, #2e828b ) ;
+}
 
+h1 {
+    color: #fcfaf1;
+    padding: 50px 25px;
+    margin: 0 auto;
+}
 
-
-
-@media only screen and (min-width: 992px) {
-    header {
-        background: linear-gradient( #134153, #2e828b ) ;
-    }
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
     
-    h1 {
-        color: #fcfaf1;
-        padding: 50px 25px;
-        margin: 0 auto;
-    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    
+}
+
+
+@media only screen and (min-width: 992px) {  /*For Laptops and Desktops*/
+    
+    
     
     nav {
         background-color: #2e828b;
@@ -19,6 +29,7 @@
         border-color: #134153;
         border-width: 1px 0px;
     }
+    
     
     .show {
         position: sticky;

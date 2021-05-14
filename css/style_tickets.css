@@ -1,57 +1,68 @@
-@media only screen and (min-width: 992px) {
-    html {
-        font-family: Arial, Helvetica, sans-serif;
-        scroll-behavior: smooth;
-    }
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background-color: #fcfaf1 ;
+    color: #134153;
+}
+
+.main-title h2{
+    background-color: #8ad8ed;
+    padding: 1em;
+    margin: 0;
+    border-color: #134153;
+    border-style: solid;
+    border-width: 0px 0px 1px 1px;
+    box-shadow: 1px 1px 10px #134153;
+}
+
+.main-box {
+    margin: 1em;
+    padding: 1em;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #134153;
+    box-shadow: 1px 2px 10px #134153;
+    text-align:center;
+    justify-content: center;
+}
+
+.ticket-pricing th, .ticket-pricing td {
+    font-size: 22px;
+    padding: 20px;
+    border: 1px solid black;
+}
+
+.ticket-pricing {
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+.ticket-pricing thead {
+    /* background-color: #134153; */
+    /* color: #fcfaf1; */
+    color: #134153;
+    border-bottom: 3px black groove;
+}
+
+.ticket-pricing td:nth-child(1), .ticket-pricing th:nth-child(1) {
+    border-right: 3px black solid;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
     
-    body {
-        margin: 0;
-        background-color: #fcfaf1 ;
-        color: #134153;
-    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
     
-    .main-title h2{
-        background-color: #8ad8ed;
-        padding: 1em;
-        margin: 0;
-        border-color: #134153;
-        border-style: solid;
-        border-width: 0px 0px 1px 1px;
-        box-shadow: 1px 1px 10px #134153;
-    }
+}
+
+@media only screen and (min-width: 992px) { /*For Laptops and Desktops*/
     
-    .main-box {
-        margin: 1em;
-        padding: 1em;
-        border-width: 1px;
-        border-style: solid;
-        border-color: #134153;
-        box-shadow: 1px 2px 10px #134153;
-        text-align:center;
-        justify-content: center;
-    }
-    
-    
-    .ticket-pricing th, .ticket-pricing td {
-        font-size: 22px;
-        padding: 20px;
-        border: 1px solid black;
-    }
-    
-    .ticket-pricing {
-        border-collapse: collapse;
-        margin: 0 auto;
-    }
-    
-    .ticket-pricing thead {
-        /* background-color: #134153; */
-        /* color: #fcfaf1; */
-        color: #134153;
-        border-bottom: 3px black groove;
-    }
-    
-    .ticket-pricing td:nth-child(1), .ticket-pricing th:nth-child(1) {
-        border-right: 3px black solid;
-    }
 
 }

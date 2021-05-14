@@ -1,28 +1,73 @@
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background-color: #fcfaf1 ;
+    color: #134153;
+}
+
+.main-title h2 {
+    background-color: #8ad8ed;
+    padding: 1em;
+    margin: 0;
+    border-color: #134153;
+    border-style: solid;
+    border-width: 0px 0px 1px 1px;
+    box-shadow: 1px 1px 10px #134153;
+}
+
+.div-form
+{
+    display: grid;
+    grid-template: 1fr / 1fr;
+}
+
+.div-form h2 {
+    grid-row: 1;
+    grid-column: 1;
+}
+
+form {
+    grid-row: 2;
+    grid-column: 1;
+    justify-self: center;
+    text-align: left;
+    text-indent: -1em;
+}
+
+#fname, #lname, #subject {
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+
+#fname, #lname {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    
+}
+
+
 @media only screen and (min-width: 992px) {
-    html {
-        font-family: Arial, Helvetica, sans-serif;
-        scroll-behavior: smooth;
-    }
     
-    body {
-        margin: 0;
-        background-color: #fcfaf1 ;
-        color: #134153;
-    }
-    
-    .main-title h2 {
-        background-color: #8ad8ed;
-        padding: 1em;
-        margin: 0;
-        border-color: #134153;
-        border-style: solid;
-        border-width: 0px 0px 1px 1px;
-        box-shadow: 1px 1px 10px #134153;
-    }
+
     
     /* .main-title h3 {
         font-size: 16px;
     } */
+    
     
     .main-box {
         margin: 1em;
@@ -34,11 +79,12 @@
         text-align:center;
     }
     
-    
     .container-first {
         display: grid;
         grid-template: 1fr / 1fr 1fr;
     }
+    
+    
     
     .left {
         font-size: 18px;
@@ -77,6 +123,8 @@
         /* list-style-image: url('../media/icons/phone_40.png'); */
     }
     
+    
+    
     #phone {
         background: url('../media/icons/phone2_40.png') no-repeat left top;
     }
@@ -101,39 +149,12 @@
         color: #003983;
     }
     
-    .div-form
-    {
-        display: grid;
-        grid-template: 1fr / 1fr;
-    }
-    
-    .div-form h2 {
-        grid-row: 1;
-        grid-column: 1;
-    }
-    
-    form {
-        grid-row: 2;
-        grid-column: 1;
-        justify-self: center;
-        text-align: left;
-        text-indent: -1em;
-    }
-    
-    #fname, #lname, #subject {
-        margin-bottom: 20px;
-        margin-top: 5px;
-    }
-    
-    #fname, #lname {
-        padding-top: 5px;
-        padding-bottom: 5px;
-    }
-    
     .submitbutton{
         width: 30%;
         height: 8%;
         font-size: 16px;
     }
+    
+    
 }
 
