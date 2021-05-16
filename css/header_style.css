@@ -8,6 +8,31 @@ h1 {
     margin: 0 auto;
 }
 
+button.topButton {
+    display: none;
+    width: 2em;
+    height: 2em;
+    position: fixed;
+    bottom: 1.5em;
+    right: .5em;
+    border: 1px solid #8ad8ed;
+    background-color: #2e828b;
+    color: #fcfaf1;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 20px;
+    transition: background-color .5s linear, opacity 1s linear, visibility 2s linear;
+    z-index: auto;
+}
+
+button.topButton:hover {
+    color: #2e828b;
+    background-color: #fcfaf1;
+}
+
+button.topButton:active {
+    background-color: #134153;
+}
 
 /* Extra small devices (phones, 600px and down) */
 /*@media only screen and (max-width: 600px) {
