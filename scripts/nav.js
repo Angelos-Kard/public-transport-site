@@ -4,7 +4,8 @@ const navbar = document.querySelector("nav");
 let scrollPosition = 0;
 
 const scrollToTop = document.createElement("button");
-scrollToTop.className = "topButton"
+scrollToTop.className = "topButton";
+scrollToTop.textContent = "↑";
 scrollToTop.addEventListener("click", function (){
     document.documentElement.scrollTo({top: 0 , behavior: "smooth"});
 });
