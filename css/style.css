@@ -61,5 +61,40 @@ h2 {
     .articleNews:active {
         background-color: #2e828b;
     }
+
+    .newsInfos {
+        border: .5em double #134153be;
+        margin: .5em;
+    }
+
+    .newsInfos h2 {
+        margin: 1em;
+    }
+
+    .newsInfos ol {
+        padding: 0;
+        margin: 5em;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .newsInfos ol li {        
+        justify-content: center;
+        font-size: x-large;
+    }
+
+    .newsInfos ol li a {
+        color: #134153;
+        text-shadow: #2e828b 2px 2px 4px;
+    }
+
+    .newsInfos ol li a:hover {
+        text-shadow: #8ad8ed 2px 2px 2px;
+        text-decoration: none;
+    }
+
+    .newsInfos ol li a:active {
+        color: #2e828b;
+    }
 }
 
