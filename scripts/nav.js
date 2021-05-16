@@ -8,7 +8,7 @@ scrollToTop.className = "topButton"
 scrollToTop.addEventListener("click", function (){
     document.documentElement.scrollTo({top: 0 , behavior: "smooth"});
 });
-document.querySelector('.welcome').appendChild(scrollToTop);
+document.querySelector('h1').appendChild(scrollToTop);
 
 window.addEventListener("scroll", function () {
 
