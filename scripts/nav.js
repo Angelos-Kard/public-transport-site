@@ -14,13 +14,15 @@ document.querySelector('h1').appendChild(scrollToTop);
 window.addEventListener("scroll", function () {
 
     if( window.pageYOffset >= navbar.offsetTop ) 
-    { 
+    {
+        console.log("!!!!")
         navbar.className = "show"; 
         document.querySelector(".dropdown-content").style.top = "50px";
     }
     else if ( navbar.classList.contains("show") )
     {
-        // navbar.classList.remove("show");
+        console.log("???????")
+        navbar.classList.remove("show");
         document.querySelector(".dropdown-content").style.top = "188px";
     }
 
