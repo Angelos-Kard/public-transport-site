@@ -69,8 +69,8 @@ nav {
     top: 0;
     right: 0;
     z-index: 1;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     padding: 1rem;
     background: var(--primary-color);
     display: flex;
@@ -153,9 +153,9 @@ nav {
 
 .menu-wrap .menu > div {
     background: var(--overlay-color);
-    border-radius: 50%;
-    width: 200vw;
-    height: 200vw;
+    border-radius: 40%;
+    width: 300vw;
+    height: 300vw;
     display: flex;
     flex: none;
     align-items: center;
