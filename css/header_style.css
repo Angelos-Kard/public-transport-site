@@ -34,6 +34,10 @@ button.topButton:active {
     background-color: #134153;
 }
 
+nav {
+    display: none;
+}
+
 /* Extra small devices (phones, 600px and down) */
 /*@media only screen and (max-width: 600px) {
     
@@ -51,6 +55,7 @@ button.topButton:active {
     
     
     nav {
+        display: block;
         background-color: #2e828b;
         border-style: solid;
         border-color: #134153;
