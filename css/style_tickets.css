@@ -30,10 +30,13 @@ body {
     justify-content: center;
 }
 
-a {
+table a {
     color: rgba(19, 65, 83, 1);
 }
 
+table a:hover {
+    color: #003983;
+}
 
 /* Tables */
 /* Styling 1 */

@@ -93,7 +93,7 @@ ul {
     background: url('../media/icons/bus_40.png') no-repeat left top;
 }
 
-.left li a:link {
+.left li a:link, .left li a:visited {
     color: #134153;
 }
 
