@@ -44,7 +44,8 @@ nav {
     display: none;
 }
 
-/* Hamburger menu: Mobile ONLY */
+/* -------------------Hamburger menu: Mobile ONLY---------------------------- */
+/* https://www.youtube.com/watch?v=DZg6UfS5zYg */
 .menu-wrap {
     display: block;
     position: fixed;

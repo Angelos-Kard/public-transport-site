@@ -30,7 +30,14 @@ body {
     justify-content: center;
 }
 
-.ticket-pricing th, .ticket-pricing td {
+a {
+    color: rgba(19, 65, 83, 1);
+}
+
+
+/* Tables */
+/* Styling 1 */
+/* .ticket-pricing th, .ticket-pricing td {
     font-size: 22px;
     padding: 20px;
     border: 1px solid black;
@@ -42,16 +49,75 @@ body {
 }
 
 .ticket-pricing thead {
-    /* background-color: #134153; */
-    /* color: #fcfaf1; */
     color: #134153;
     border-bottom: 3px black groove;
 }
 
 .ticket-pricing td:nth-child(1), .ticket-pricing th:nth-child(1) {
     border-right: 3px black solid;
+} */
+
+/* Styling 2 */
+table {
+	width: 50%;
+	border-collapse: collapse;
+	overflow: hidden;
+	box-shadow: 10px 10px 20px rgba(0,0,0,0.1);
+    border-collapse: collapse;
+    margin: 0 auto;
 }
 
+th,
+td {
+	padding: 15px;
+	/* background-color: rgba(167, 45, 45, 0.0); */
+	color: #000;
+}
+
+th {
+	text-align: center;
+}
+
+thead th,  .ticket-pricing tbody tr td:nth-child(1){
+		/* background-color: rgba(19, 65, 83, 1); */
+        background-color: rgba(46,130,139,1);
+        color:#fff;
+}
+
+thead th {
+    border-bottom: 1px rgba(0,0,0,1) solid;
+}
+
+.ticket-pricing tbody tr td:nth-child(1) {
+    border-right: 2px rgba(0,0,0,1) solid;
+}
+
+/* tbody tr:hover{
+        background-color: rgba(13, 209, 167, 0.3);
+} */
+
+/* tbody td {
+    position: relative;
+} */
+
+
+
+tbody td:hover {
+    /* background-color: rgba(46,130,139,0.2); */
+    background-color: rgba(19, 65, 83, 0.2);
+}
+/* tbody td:hover:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -9999px;
+    bottom: -9999px;
+    background-color: rgba(16, 13, 202, 0.2);
+    z-index: -1;
+} */
+
+/* Media Rules */
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     
