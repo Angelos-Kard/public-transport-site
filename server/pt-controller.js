@@ -2,6 +2,7 @@
 
 const model = require("./pt-model-sql");
 
+
 exports.homePage = (req, res) => {
     res.render("home_page", 
     {
@@ -50,8 +51,15 @@ exports.routePage = (req, res) => {
 }
 
 exports.ticketsPage = (req, res) => {
-    res.render("tickets", 
-    {
+
+    model.ticketsPrices((err, results) => {
+        if(err) console.log(err);
+        
+        const rows = rowpacketToJSON("tickets", results);
+
+        //console.log(typeof JSON.stringify(rows.tickets));
+        res.render("tickets", 
+        {
         layout: "main.hbs", 
         title:"Εισιτήρια",
         styles: [
@@ -60,8 +68,15 @@ exports.ticketsPage = (req, res) => {
         scripts: [
             {jsFile: "tickets.js"},
             {jsFile: "redirect.js"}
-        ]
+        ],
+        tickets: rows.tickets
+        });
+
     });
+
+    
+
+    
 }
 
 exports.contactPage = (req, res) => {
@@ -84,3 +99,15 @@ exports.htmlRedirection = (req, res) => {
     res.redirect(newPath);
 }
 
+function rowpacketToJSON (arg, rows) {
+
+    let JSONobject = {[arg]:[]}
+
+    for (let i in rows)
+    {
+        //console.log(rows[i]);
+        JSONobject[arg].push(rows[i])
+    }
+
+    return JSONobject;
+}

@@ -16,8 +16,15 @@
                 <tbody id="pricing-body">
                     <tr>
                         <td>Μειωμένο</td>
-                        <td>0.60€</td>
-                        <td>0.80€</td>
+                        {{!-- <td>0.60€ --}}
+                            {{#each tickets}}
+                                {{#checkTicketType this.typos 'meiomeno'}}
+                                    <td>{{this.timi}}€</td>
+                                {{/checkTicketType}}
+                            {{/each}}
+                            
+                        {{!-- </td> --}}
+                        {{!-- <td>0.80€</td> --}}
                     </tr>
                     <tr>
                         <td>Κανονικό</td>

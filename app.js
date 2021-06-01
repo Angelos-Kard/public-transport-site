@@ -19,13 +19,22 @@ app.use('/', routes);
 app.engine('hbs', exphbs({
     extname: '.hbs',
     layoutsDir: __dirname+"/views/layouts",
-    defaultLayout: "main",
+    defaultLayout: "main"
 }));
 
 app.set('view engine', 'hbs');
 
 app.set("views", __dirname + "/views")
 
-console.log(__dirname)
+const hbs = exphbs.create({});
+
+//Helpers
+hbs.handlebars.registerHelper("checkTicketType", function(varVal, fixedVal, options) {
+    //console.log(arg1);
+    return (fixedVal==varVal) ? options.fn(this) : options.inverse(this); 
+
+}); 
+
+//exports.hbs = hbs;
 
 module.exports = app;
