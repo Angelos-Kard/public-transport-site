@@ -10,14 +10,9 @@ function connectToDB (){
         user: process.env.USER,
         password: process.env.PASSWORD,
         port: process.env.DB_PORT,
-        database: process.env.DB_NAME
+        database: process.env.DB_NAME,
+        multipleStatements: true
     });
-
-    // console.log(process.env.HOST,
-    //     process.env.USER,
-    //     process.env.PASSWORD,
-    //     process.env.DB_PORT,
-    //     process.env.DB_NAME);
 }
 
 exports.ticketsPrices = (callback) => {
@@ -29,11 +24,12 @@ exports.ticketsPrices = (callback) => {
         if(err) console.log(err);
         //console.log("Connected!");
 
-        con.query("SELECT * FROM Eisitirio ORDER BY Eisitirio.zoni", (err, results, fields) => {
+        con.query("SELECT * FROM Eisitirio ORDER BY Eisitirio.zoni;\
+        SELECT * FROM MiniaiaKarta ORDER BY MiniaiaKarta.zoni", (err, results, fields) => {
             if (err) callback(err, null);
             callback(null, results);
             con.end();
-        })
+        });
 
 
     });

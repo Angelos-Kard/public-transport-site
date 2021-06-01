@@ -55,7 +55,9 @@ exports.ticketsPage = (req, res) => {
     model.ticketsPrices((err, results) => {
         if(err) console.log(err);
         
-        const rows = rowpacketToJSON("tickets", results);
+        const rows = rowpacketToJSON("tickets", results[0]);
+
+        const rows2 = rowpacketToJSON("monthly", results[1]);
 
         //console.log(typeof JSON.stringify(rows.tickets));
         res.render("tickets", 
@@ -69,7 +71,8 @@ exports.ticketsPage = (req, res) => {
             {jsFile: "tickets.js"},
             {jsFile: "redirect.js"}
         ],
-        tickets: rows.tickets
+        tickets: rows.tickets,
+        monthly: rows2.monthly
         });
 
     });

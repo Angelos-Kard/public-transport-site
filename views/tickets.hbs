@@ -28,12 +28,20 @@
                     </tr>
                     <tr>
                         <td>Κανονικό</td>
-                        <td>1.10€</td>
-                        <td>1.50€</td>
+                        {{#each tickets}}
+                            {{#checkTicketType this.typos 'kanoniko'}}
+                                <td>{{this.timi}}€</td>
+                            {{/checkTicketType}}
+                        {{/each}}
                     </tr>
                     <tr>
                         <td>Επιβαρυμένο</td>
-                        <td colspan="2">2.00€</td>
+
+                        {{#each tickets}}
+                            {{#checkTicketType this.typos 'epivarimeno'}}
+                                <td>{{this.timi}}€</td>
+                            {{/checkTicketType}}
+                        {{/each}}
                     </tr>
                 </tbody>
                 
@@ -54,13 +62,19 @@
                 <tbody>
                     <tr>
                         <td>Μειωμένο</td>
-                        <td>27.50€</td>
-                        <td>37.50€</td>
+                        {{#each monthly}}
+                            {{#checkTicketType this.typos 'meiomeno'}}
+                                <td>{{this.timi}}€</td>
+                            {{/checkTicketType}}
+                        {{/each}}
                     </tr>
                     <tr>
                         <td>Κανονικό</td>
-                        <td>55.00€</td>
-                        <td>72.00€</td>
+                        {{#each monthly}}
+                            {{#checkTicketType this.typos 'kanoniko'}}
+                                <td>{{this.timi}}€</td>
+                            {{/checkTicketType}}
+                        {{/each}}
                     </tr>
                 </tbody>
                 

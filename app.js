@@ -32,7 +32,6 @@ const hbs = exphbs.create({});
 hbs.handlebars.registerHelper("checkTicketType", function(varVal, fixedVal, options) {
     //console.log(arg1);
     return (fixedVal==varVal) ? options.fn(this) : options.inverse(this); 
-
 }); 
 
 //exports.hbs = hbs;
