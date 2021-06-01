@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-<html lang="el">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Αστικές Συγκοινωνίες</title>
-    <!-- css files -->
-    <link href="css/style.css"        rel="stylesheet" type="text/css">
-    <link href="css/header_style.css" rel="stylesheet" type="text/css">
-    <link href="css/footer_style.css" rel="stylesheet" type="text/css">
-    <link href="css/form_style.css"   rel="stylesheet" type="text/css">
-    <link rel="shortcut icon" href = "media/icons/bus_40.png" type="image/png">
-</head>
+    <title>{{title}}</title>
 
+    {{#each styles}}
+        <link rel="stylesheet" type="txt/css" href="/css/{{cssFile}}">
+    {{/each}}
+    <link rel="shortcut icon" href = "media/icons/bus_40.png" type="image/png">
+
+    
+</head>
 <body>
     <header>
         <h1>Αστικές Συγκοινωνίες</h1>
@@ -63,58 +62,9 @@
             </div>
         </div>
     </div>
-    <main>
-        <div class="welcome">
-        <h2>Καλώς ήλθατε</h2>
-            <p> Η ιστοσελίδα αποτελεί εφαρμογή διαχείρισης δρομολογίων των αστικών λεωφορείων της πόλης μας.
-                Μπορείτε να ενημερωθείτε σχετικά με τα δρομολόγιά μας και τις τιμές των εισιτιρίων μας. Ταυτόχρονα,
-                στις ανακοινώσεις μπορείτε να πληροφορηθείτε σχετικά με τα τελευταία νέα των συγκοινωνιών της περιοχής.  
-                Μη διστάσετε να επικοινωνήσετε μαζί μας.
-            </p>
-        </div>
-        <div class="bestpath">
-            <h2>Εύρεση διαδρομής</h2>
-            <form>
-                <fieldset>
-                    <label for="line"> Επίλεξε γραμμή: </label>
-                    <input list="line" name="line" placeholder="Γραμμή Λεωφορείου">
-                    <datalist id="line">
-                    </datalist>
-                    <label for="station"> Επίλεξε στάση: </label>
-                    <input list="station" name="station" placeholder="Στάση Λεωφορείου">
-                    <datalist id="station">
-                    </datalist>
-                </fieldset>
-                <fieldset>
-                    <label for="desination"> Επίλεξε προορισμό: </label>
-                    <input list="destination" name="destination" placeholder="Στάση Προορισμού">
-                    <datalist id="destination">
-                    </datalist>
-                </fieldset>
-                <input type="submit" value="Βέλτιστη Διαδρομή" class="submitbutton">
-            </form>
-        </div>
-        <div id="latestNews">
-            <h2>Τελευταίες ανακοινώσεις</h2>
-        </div>
-        <div class="newsInfos">
-            <h2>Χρήσιμες πληροφορίες</h2>
-            <ol>
-                <li>
-                    <a href="">Γραμμές λεωφορείων.</a>
-                </li>
-                <li>
-                    <a href="tickets.html#ticket-office">Εκδοτήρια.</a>
-                </li>
-                <li>
-                    <a href="">Έκδοση κάρτας.</a>
-                </li>
-                <li>
-                    <a href="">Χάρτης.</a>
-                </li>
-            </ol>
-        </div>
-    </main>
+
+    {{{body}}}
+
     <footer>
         <ul id=footermenu>
             <li>
@@ -159,9 +109,5 @@
             </span>
         </div>
     </footer>
-    <!-- scripts -->
-    <script src="scripts/nav.js"></script>
-    <script src="scripts/news.js"></script>
-    <script src="scripts/newsHome.js"></script>
 </body>
 </html>
