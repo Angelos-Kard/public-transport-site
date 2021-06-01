@@ -1,0 +1,58 @@
+<main>
+        <div class="main-title">
+            <h2>Επικοινωνία</h2>
+            <!-- <h3>Για περισσότερες πληροφορίες, μπορείτε να έρθετε σε επικοινωνία μαζί μας με έναν από τους παρακάτω τρόπους</h3> -->
+        </div>
+
+        <div class="main-box container-first">
+            <ul class="left">
+                <li id="adress">
+                    <strong>Διεύθυνση</strong>:<br>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Αγιού+Ανδρέου+9+Πάτρα" target="_blank">Οδός Αγιού Ανδρέου 9, Πάτρα</a>
+                </li>
+
+                <li id="phone">
+                    <strong>Τηλέφωνο</strong>:<br>
+                    <a href="tel:+30 0123456789">+30 0123456789</a>
+                </li>
+
+                <li id="fax">
+                    <strong>Fax</strong>:<br>
+                    012 345 6780
+                </li>
+
+                <li id="mail">
+                    <strong>Email</strong>:<br>
+                    <a href="mailto:someone@email.com">someone@email.com</a>
+                </li>
+                
+            </ul>
+
+            <div class="right">
+                <!-- <iframe width="600" height="450" style="border:0" loading="lazy" 
+                allowfullscreen src="https://www.google.com/maps/embed/v1/place?q=%CE%91%CE%B3%CE%AF%CE%BF%CF%85%20%CE%91%CE%BD%CE%B4%CF%81%CE%AD%CE%BF%CF%85%209%2C%20262%2023%20%CE%A0%CE%AC%CF%84%CF%81%CE%B1&key=AIzaSyBFEQazFuo0ERgjZDyTUMyqNKNBHQHYa-4">
+                -->
+                <iframe samesite="lax" id="gmap_canvas" src="https://maps.google.com/maps?q=%CE%91%CE%B3%CE%AF%CE%BF%CF%85%20%CE%91%CE%BD%CE%B4%CF%81%CE%AD%CE%B1%209,%20%CE%A0%CE%AC%CF%84%CF%81%CE%B1&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" >
+                </iframe>
+                        
+            </div>
+
+            
+        </div>
+
+        <div class="main-box div-form">
+            <h2>Φόρμα Επικοινωνίας</h2>
+            <form id="contact-form" action="">
+                <label for="fname">Όνομα</label>
+                <input type="text" id="fname" name="firstname" placeholder="Όνομα...">
+
+                <label for="lname">Επώνυμο</label>
+                <input type="text" id="lname" name="lastname" placeholder="Επώνυμο...">
+                
+                <label for="subject">Μήνυμα</label>
+                <textarea id="subject" name="subject" placeholder="Το Μήνυμά Σας..." style="height:170px"></textarea>
+                <input class = "submitbutton" type="submit" value="Υποβολή">
+              </form>
+        </div>
+
+    </main>

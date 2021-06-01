@@ -14,4 +14,14 @@ router.get('/index.html', ptController.htmlRedirection);
 router.get("/news", ptController.newsPage);
 router.get("/news.html", ptController.htmlRedirection);
 
+router.get("/route", ptController.routePage);
+router.get("/route.html", ptController.htmlRedirection);
+
+router.get("/tickets", ptController.ticketsPage);
+router.get("/tickets.html", ptController.htmlRedirection);
+
+router.get("/contact", ptController.contactPage);
+router.get("/contact.html", ptController.htmlRedirection);
+
+
 module.exports = router;

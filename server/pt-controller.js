@@ -9,12 +9,9 @@ exports.homePage = (req, res) => {
         title:"Αστικές Συγκοινωνίες",
         styles: [
             {cssFile: "style.css"},
-            {cssFile: "header_style.css"},
-            {cssFile: "footer_style.css"},
             {cssFile: "form_style.css"}
         ],
         scripts: [
-            {jsFile: "nav.js"},
             {jsFile: "news.js"},
             {jsFile: "newsHome.js"}
         ]
@@ -27,15 +24,54 @@ exports.newsPage = (req, res) => {
         layout: "main.hbs", 
         title:"Ανακοινώσεις",
         styles: [
-            {cssFile: "news_style.css"},
-            {cssFile: "header_style.css"},
-            {cssFile: "footer_style.css"}
+            {cssFile: "news_style.css"}
         ],
         scripts: [
-            {jsFile: "nav.js"},
             {jsFile: "news.js"},
             {jsFile: "newsArticle.js"},
             {jsFile: "redirect.js"}
+        ]
+    });
+}
+
+exports.routePage = (req, res) => {
+    res.render("route", 
+    {
+        layout: "main.hbs", 
+        title:"Δρομολόγια",
+        styles: [
+            {cssFile: "route_style.css"}
+        ],
+        scripts: [
+            {jsFile: "lines.js"},
+            {jsFile: "redirect.js"}
+        ]
+    });
+}
+
+exports.ticketsPage = (req, res) => {
+    res.render("tickets", 
+    {
+        layout: "main.hbs", 
+        title:"Εισιτήρια",
+        styles: [
+            {cssFile: "style_tickets.css"}
+        ],
+        scripts: [
+            {jsFile: "tickets.js"},
+            {jsFile: "redirect.js"}
+        ]
+    });
+}
+
+exports.contactPage = (req, res) => {
+    res.render("contact", 
+    {
+        layout: "main.hbs", 
+        title:"Εισιτήρια",
+        styles: [
+            {cssFile: "style_contact.css"},
+            {cssFile: "form_style.css"}
         ]
     });
 }

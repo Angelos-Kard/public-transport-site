@@ -6,15 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}}</title>
     
-    <link rel="icon" href="/media/icons/bus_40.png" type="image/png">
+    <link rel="shortcut icon" href="/media/icons/bus_favicon.ico">
 
     {{#each styles}}
         <link rel="stylesheet" href="/css/{{cssFile}}">
     {{/each}}
+    <link rel="stylesheet" href="/css/header_style.css">
+    <link rel="stylesheet" href="/css/footer_style.css">
 </head>
 <body>
     <header>
-        <h1>Αστικές Συγκοινωνίες</h1>
+        <h1 id="title">Αστικές Συγκοινωνίες</h1>
     </header>
     <nav>
         <ul>
@@ -109,8 +111,10 @@
         </div>
     </footer>
 
+    <script src="/scripts/nav.js"></script>
     {{#each scripts}}
         <script src="/scripts/{{jsFile}}"></script>
     {{/each}}
+
 </body>
 </html>
