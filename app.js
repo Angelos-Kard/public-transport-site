@@ -3,7 +3,7 @@ const app = express()
 const exphbs = require('express-handlebars');
 const path = require("path");
 
-app.use(express.static("/server/public"));
+app.use(express.static("public"));
 
 //Διαδρομές - Routse
 const routes = require('./server/pt-routes');
