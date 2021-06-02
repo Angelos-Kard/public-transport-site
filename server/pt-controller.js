@@ -201,11 +201,10 @@ function rowpacketToJSON (arg, rows) {
  * Output: An array of JSON objects, where the dates are stored under the key "imerominia" and they are String objects\. 
  * Date's format is "dd/MM/YYYY".
  * 
- * 
  * @access private
  * 
  * @param {Array} results An array of JSON objects.
- * @returns {Array} Returns the same array of JSON objects, but the dates' format "dd/MM/YYYY".
+ * @returns {Array} Returns the same array of JSON objects, but the dates' format is "dd/MM/YYYY".
  */
 function fixDates (results) {
     for (let i in results)
