@@ -149,7 +149,7 @@ exports.contactPage = (req, res) => {
 /**
  * Renders site's page for a specific line, after retrieving its route from DB.
  * 
- * @param {Request} [req] Request Object.
+ * @param {Request} req Request Object.
  * @param {Response} res Response Object.
  * 
  */
@@ -166,7 +166,6 @@ exports.specificRoutePage = (req, res) => {
  * @param {Response} res Response Object.
  */
 exports.htmlRedirection = (req, res) => {
-
     const newPath = req.route.path.slice(0,-5);
     //console.log(req);
     res.redirect(newPath);
@@ -178,7 +177,7 @@ exports.htmlRedirection = (req, res) => {
  * @access private
  * 
  * @param {String} arg Keys's name, whose value is the array.
- * @param {Array} rows An array, which contains JSON objects. 
+ * @param {Array<JSON>} rows An array, which contains JSON objects. 
  * @returns {JSON} A JSON object with the array of JSON objects.
  */
 function rowpacketToJSON (arg, rows) {
@@ -197,14 +196,14 @@ function rowpacketToJSON (arg, rows) {
 /**
  * A function that changes the format of the date.
  * 
- * Input: An array of JSON objects, where the dates are stored under the key "imerominia" and they are Date objects\.
- * Output: An array of JSON objects, where the dates are stored under the key "imerominia" and they are String objects\. 
+ * - Input: An array of JSON objects, where the dates are stored under the key "imerominia" and they are Date objects\.
+ * - Output: An array of JSON objects, where the dates are stored under the key "imerominia" and they are String objects\. 
  * Date's format is "dd/MM/YYYY".
  * 
  * @access private
  * 
- * @param {Array} results An array of JSON objects.
- * @returns {Array} Returns the same array of JSON objects, but the dates' format is "dd/MM/YYYY".
+ * @param {Array.<{id: Number, titlos: String, imerominia: Date, keimeno: String}>} results An array of JSON objects.
+ * @returns {Array.<{id: Number, titlos: String, imerominia: Date, keimeno: String}>} Returns the same array of JSON objects, but the dates' format is "dd/MM/YYYY".
  */
 function fixDates (results) {
     for (let i in results)
