@@ -108,6 +108,9 @@ exports.contactPage = (req, res) => {
         styles: [
             {cssFile: "style_contact.css"},
             {cssFile: "form_style.css"}
+        ],
+        scripts: [
+            {jsFile: "redirect.js"}
         ]
     });
 }
