@@ -4,6 +4,16 @@ if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config();
 }
 
+/**
+ * A function that connects the server with a remote mySQL DB.
+ * 
+ * The credentials for the connection are retrieved from the enviromental variables.
+ * - In development: The env vars are stored in the .env file in the root folder.
+ * - In production: The env vars are stored on Heroku, "Settings" > "Config Vars".
+ * @access private
+ * 
+ * @returns {mysql.Connection} An mysql.Connection object, used for queries.
+ */
 function connectToDB (){
     return mysql.createConnection({
         host: process.env.HOST,
@@ -15,6 +25,18 @@ function connectToDB (){
     });
 }
 
+/**
+ * A callback, whose inputs are an error message and the retrieved data.
+ * 
+ * @callback ticketPricesCallback
+ * @param {String} err - An error message.
+ * @param {Array.<JSON>} results An array of JSON Objects\. Its length is 2, one for every mySQL query.
+ */
+/**
+ * A function that retrieves the ticket prices from the DB.
+ * 
+ * @param {ticketPricesCallback} callback The callback that handles the error message and the retrieved data.
+ */
 exports.ticketsPrices = (callback) => {
     con = connectToDB();
 
@@ -33,6 +55,20 @@ exports.ticketsPrices = (callback) => {
     });
 }
 
+
+/**
+ * A callback, whose inputs are an error message and the retrieved data.
+ * 
+ * @callback modelCallback
+ * 
+ * @param {String} err An error message.
+ * @param {Array.<JSON>} results An array of the retrieved data, which are JSON objects.
+ */
+/**
+ * A function that retrieves the lines names from the DB.
+ * 
+ * @param {modelCallback} callback The callback that handles the error message and the retrieved data.
+ */
 exports.linesNames = (callback) => {
     con = connectToDB();
 
@@ -49,7 +85,11 @@ exports.linesNames = (callback) => {
     });
 }
 
-
+/**
+ * A function that retrieves the artciles from the DB.
+ * 
+ * @param {modelCallback} callback The callback that handles the error message and the retrieved data.
+ */
 exports.getArticles = (callback) => {
     con = connectToDB();
 
