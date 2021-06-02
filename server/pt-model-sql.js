@@ -48,3 +48,18 @@ exports.linesNames = (callback) => {
 
     });
 }
+
+
+exports.getArticles = (callback) => {
+    con = connectToDB();
+
+    con.connect((err)=>{
+        if (err) console.log(err)
+
+        con.query("SELECT * FROM Nea ORDER BY Nea.imerominia DESC", (err, results, fields) => {
+            if (err) callback(err, null);
+            callback(null, results);
+            con.end();
+        });
+    });
+}

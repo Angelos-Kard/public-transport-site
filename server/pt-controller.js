@@ -20,19 +20,27 @@ exports.homePage = (req, res) => {
 }
 
 exports.newsPage = (req, res) => {
-    res.render("news", 
-    {
-        layout: "main.hbs", 
-        title:"Ανακοινώσεις",
-        styles: [
-            {cssFile: "news_style.css"}
-        ],
-        scripts: [
-            {jsFile: "news.js"},
-            {jsFile: "newsArticle.js"},
-            {jsFile: "redirect.js"}
-        ]
-    });
+
+    model.getArticles((err,results) => {
+        if (err) console.log(err);
+        
+        results = fixDates(results);
+
+        res.render("news", 
+        {
+            layout: "main.hbs", 
+            title:"Ανακοινώσεις",
+            styles: [
+                {cssFile: "news_style.css"}
+            ],
+            scripts: [
+                //{jsFile: "news.js"},
+                //{jsFile: "newsArticle.js"},
+                {jsFile: "redirect.js"}
+            ],
+            news: results
+        });
+    })
 }
 
 exports.routePage = (req, res) => {
@@ -127,4 +135,16 @@ function rowpacketToJSON (arg, rows) {
     }
 
     return JSONobject;
+}
+
+function fixDates (results) {
+    for (let i in results)
+    {
+        const newDate = results[i].imerominia.getDate() 
+                + "/" + (results[i].imerominia.getMonth()+1) 
+                + "/" + results[i].imerominia.getFullYear();
+
+        results[i].imerominia = newDate;
+    }
+    return results;
 }

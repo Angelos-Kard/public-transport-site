@@ -1,4 +1,12 @@
 <main>
         <h2>Ανακοινώσεις</h2>
-        <ul id="news"></ul>
+        <ul id="news">
+        {{#each news}}
+                <div class="article" id={{this.id}}>
+                        <h3>{{this.titlos}}</h3>
+                        <span>Ημερομηνία: {{this.imerominia}}</span>
+                        <article>{{this.keimeno}}</article>
+                </div>        
+        {{/each}}
+        </ul>
 </main>
