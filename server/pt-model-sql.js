@@ -17,8 +17,6 @@ function connectToDB (){
 
 exports.ticketsPrices = (callback) => {
     con = connectToDB();
-    
-    let resultsToRetrun;
 
     con.connect((err) => {
         if(err) console.log(err);
@@ -31,6 +29,22 @@ exports.ticketsPrices = (callback) => {
             con.end();
         });
 
+
+    });
+}
+
+exports.linesNames = (callback) => {
+    con = connectToDB();
+
+    con.connect((err) => {
+        if(err) console.log(err);
+        //console.log("Connected!");
+
+        con.query("SELECT * FROM Grammi ORDER BY Grammi.id", (err, results, fields) => {
+            if (err) callback(err, null);
+            callback(null, results);
+            con.end();
+        });
 
     });
 }

@@ -23,5 +23,6 @@ router.get("/tickets.html", ptController.htmlRedirection);
 router.get("/contact", ptController.contactPage);
 router.get("/contact.html", ptController.htmlRedirection);
 
+router.get("/route/:routeID", ptController.specificRoutePage);
 
 module.exports = router;

@@ -42,6 +42,12 @@ h2 {
 
 .lines li a:hover {
     text-decoration: underline;
+    color: var(--link-color-hover);
+}
+
+.lines li a {
+    color: var(--link-color);
+    text-decoration: none;
 }
 
 /* Extra small devices (phones, 600px and down) */

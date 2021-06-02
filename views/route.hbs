@@ -9,6 +9,9 @@
         <div class="dromologia">
             <h3>Γραμμές</h3>
             <ul id="lines" class="lines">
+                {{#each lines}}
+                    <li><a href="/route/{{this.id}}">{{this.id}} - {{this.onoma}}</a></li>
+                {{/each}}
             </ul>
         </div>
 </main>

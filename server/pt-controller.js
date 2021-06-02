@@ -36,18 +36,28 @@ exports.newsPage = (req, res) => {
 }
 
 exports.routePage = (req, res) => {
-    res.render("route", 
-    {
-        layout: "main.hbs", 
-        title:"Δρομολόγια",
-        styles: [
-            {cssFile: "route_style.css"}
-        ],
-        scripts: [
-            {jsFile: "lines.js"},
-            {jsFile: "redirect.js"}
-        ]
-    });
+
+    model.linesNames((err,results) => {
+        if (err) console.log(err);
+
+        const rows = rowpacketToJSON("lines", results);
+
+        res.render("route", 
+        {
+            layout: "main.hbs", 
+            title:"Δρομολόγια",
+            styles: [
+                {cssFile: "variables.css"},
+                {cssFile: "route_style.css"}
+            ],
+            scripts: [
+                //{jsFile: "lines.js"},
+                {jsFile: "redirect.js"}
+            ],
+            lines: results
+        });
+    })
+    
 }
 
 exports.ticketsPage = (req, res) => {
@@ -92,6 +102,10 @@ exports.contactPage = (req, res) => {
             {cssFile: "form_style.css"}
         ]
     });
+}
+
+exports.specificRoutePage = (req, res) => {
+    res.redirect("/route");
 }
 
 
