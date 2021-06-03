@@ -31,15 +31,21 @@
         </div>
         <div id="latestNews">
             <h2>Τελευταίες ανακοινώσεις</h2>
+            {{#each news}}
+                <div class="articleNews" id="{{this.id}}">
+                    <h3>{{this.titlos}}</h3>
+                    <span>Ημερομηνία: {{this.imerominia}}</span>
+                </div>
+            {{/each}}
         </div>
         <div class="newsInfos">
             <h2>Χρήσιμες πληροφορίες</h2>
             <ol>
                 <li>
-                    <a href="">Γραμμές λεωφορείων.</a>
+                    <a href="/route">Γραμμές λεωφορείων.</a>
                 </li>
                 <li>
-                    <a href="tickets.html#ticket-office">Εκδοτήρια.</a>
+                    <a href="/tickets.html#ticket-office">Εκδοτήρια.</a>
                 </li>
                 <li>
                     <a href="">Έκδοση κάρτας.</a>

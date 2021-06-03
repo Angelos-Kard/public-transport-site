@@ -9,19 +9,33 @@ const model = require("./pt-model-sql");
  * @param {Response} res Response Object.
  */
 exports.homePage = (req, res) => {
-    res.render("home_page", 
-    {
-        layout: "main.hbs", 
-        title:"Αστικές Συγκοινωνίες",
-        styles: [
-            {cssFile: "style.css"},
-            {cssFile: "form_style.css"}
-        ],
-        scripts: [
-            {jsFile: "news.js"},
-            {jsFile: "newsHome.js"}
-        ]
-    });
+
+    model.getArticles((err, results) => {
+        const someNews = [];
+
+        results = fixDates(results);
+        
+        for (let i = 0; i < 3; i++)
+        {
+            someNews.push(results[i]);
+        }
+
+        res.render("home_page", 
+        {
+            layout: "main.hbs", 
+            title:"Αστικές Συγκοινωνίες",
+            news: someNews,
+            styles: [
+                {cssFile: "style.css"},
+                {cssFile: "form_style.css"}
+            ],
+            scripts: [
+                //{jsFile: "news.js"},
+                {jsFile: "newsHome.js"}
+            ]
+        });
+    })
+    
 }
 
 /**
