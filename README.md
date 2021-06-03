@@ -13,7 +13,9 @@
 Για την εγκατάσταση του συγκεκριμένου package: 
 1. [Κατεβάζετε τον κώδικα](https://github.com/Angelos-Kard/public-transport-site/archive/refs/heads/master.zip)
 2. Επιλέγεται το φάκελο στον οποίο αποσυμπιέζεται το .zip αρχείο
+
 **Περίπτωση Α**
+
 3. Ανοίγετε το τερματικό στο συγκεκριμένο φάκελο
 4. Εκτελείτε την εντολή `npm install -dev` με σκοπό να εγκαθιστούν τα dependencies και τα devDependencies
 5. "Τρέχετε" τον server τοπικά εκτελώντας στο τερματικό την εντολή `npm run debug`.
@@ -28,6 +30,7 @@ DB_NAME=...
 ```
 
 **Περίπτωση Β**
+
 3. Εκτελείται το αρχείο [initProject.bat](initProject.bat)
 
 ## Dependencies
