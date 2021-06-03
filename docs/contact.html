@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="gr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Επικοινωνία</title>
+    <link rel="shortcut icon" href = "media/icons/bus_40.png" type="image/png">
+    <!-- css files -->
+    <link href="css/style_contact.css" rel="stylesheet" type="text/css">
+    <link href="css/header_style.css" rel="stylesheet" type="text/css">
+    <link href="css/footer_style.css" rel="stylesheet" type="text/css">
+    <link href="css/form_style.css" rel="stylesheet" type="text/css">
+    
+</head>
+
+<body>
+    <header>
+        <h1 id="title">Αστικές Συγκοινωνίες</h1>
+    </header>
+    <nav>
+        <ul>
+            <li>
+                <a href="news.html">Ανακοινώσεις</a>
+            </li>
+            <li>
+                <a href="route.html">Δρομολόγια</a>
+            </li>
+            <li class = "dropdown">
+                <a href="tickets.html">Εισιτήρια</a>
+                <div class="dropdown-content">
+                    <a href="tickets.html#ticket-prices">Τιμές Εισιτηρίων</a>
+                    <a href="tickets.html#monthly-ticket">Μηνιαία Κάρτα</a>
+                    <a href="tickets.html#ticket-office">Εκδοτήρια</a>
+                </div>
+            </li>
+            <li>
+                <a href="contact.html">Επικοινωνία</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="menu-wrap">
+        <input type="checkbox" class="toggler">
+        <div class = "hamburger"><div></div></div>
+        <div class="menu">
+            <div>
+                <div>
+                    <ul>
+                        <li>
+                            <a href="news.html">Ανακοινώσεις</a>
+                        </li>
+                        <li>
+                            <a href="route.html">Δρομολόγια</a>
+                        </li>
+                        <li>
+                            <a href="tickets.html">Εισιτήρια</a>
+                        </li>
+                        <li>
+                            <a href="contact.html">Επικοινωνία</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <main>
+        <div class="main-title">
+            <h2>Επικοινωνία</h2>
+            <!-- <h3>Για περισσότερες πληροφορίες, μπορείτε να έρθετε σε επικοινωνία μαζί μας με έναν από τους παρακάτω τρόπους</h3> -->
+        </div>
+
+        <div class="main-box container-first">
+            <ul class="left">
+                <li id="adress">
+                    <strong>Διεύθυνση</strong>:<br>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Αγιού+Ανδρέου+9+Πάτρα" target="_blank">Οδός Αγιού Ανδρέου 9, Πάτρα</a>
+                </li>
+
+                <li id="phone">
+                    <strong>Τηλέφωνο</strong>:<br>
+                    <a href="tel:+30 0123456789">+30 0123456789</a>
+                </li>
+
+                <li id="fax">
+                    <strong>Fax</strong>:<br>
+                    012 345 6780
+                </li>
+
+                <li id="mail">
+                    <strong>Email</strong>:<br>
+                    <a href="mailto:someone@email.com">someone@email.com</a>
+                </li>
+                
+            </ul>
+
+            <div class="right">
+                <!-- <iframe width="600" height="450" style="border:0" loading="lazy" 
+                allowfullscreen src="https://www.google.com/maps/embed/v1/place?q=%CE%91%CE%B3%CE%AF%CE%BF%CF%85%20%CE%91%CE%BD%CE%B4%CF%81%CE%AD%CE%BF%CF%85%209%2C%20262%2023%20%CE%A0%CE%AC%CF%84%CF%81%CE%B1&key=AIzaSyBFEQazFuo0ERgjZDyTUMyqNKNBHQHYa-4">
+                -->
+                <iframe samesite="lax" id="gmap_canvas" src="https://maps.google.com/maps?q=%CE%91%CE%B3%CE%AF%CE%BF%CF%85%20%CE%91%CE%BD%CE%B4%CF%81%CE%AD%CE%B1%209,%20%CE%A0%CE%AC%CF%84%CF%81%CE%B1&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" >
+                </iframe>
+                        
+            </div>
+
+            
+        </div>
+
+        <div class="main-box div-form">
+            <h2>Φόρμα Επικοινωνίας</h2>
+            <form id="contact-form" action="">
+                <label for="fname">Όνομα</label>
+                <input type="text" id="fname" name="firstname" placeholder="Όνομα...">
+
+                <label for="lname">Επώνυμο</label>
+                <input type="text" id="lname" name="lastname" placeholder="Επώνυμο...">
+                
+                <label for="subject">Μήνυμα</label>
+                <textarea id="subject" name="subject" placeholder="Το Μήνυμά Σας..." style="height:170px"></textarea>
+                <input class = "submitbutton" type="submit" value="Υποβολή">
+              </form>
+        </div>
+
+    </main>
+    <footer>
+        <ul id=footermenu>
+            <li>
+                <a href="news.html">Ανακοινώσεις</a>
+            </li>
+            <li>
+                <a href="route.html">Δρομολόγια</a>
+            </li>
+            <li>
+                <a href="tickets.html">Εισιτήρια</a>
+            </li>
+            <li>
+                <a href="contact.html">Επικοινωνία</a>
+            </li>
+        </ul>
+        <div class="infos">
+            <ul id=contactinfo>
+                <li id="address">
+                    Διεύθυνση: Αγιού Ανδρέου 9
+                </li>
+                <li>
+                    Τηλέφωνο: +30 0123456789
+                </li>
+                <li>
+                    Email: www.someone@email.com
+                </li>
+            </ul>
+            <ul id="otherinfo">
+                <li>
+                    <a href="">Πολιτική cookies</a>
+                </li>
+                <li>
+                    <a href="">Όροι Χρήσης</a>
+                </li>
+                <li>
+                    <a href="">Δεδομένα</a>
+                </li>
+            </ul>
+            <span id="siteinfo">© Η ιστοσελίδα αναπτύχθηκε στα πλαίσια του μαθήματος Προγραμματισμός Διαδικτύου 
+                του Τμήματος Ηλεκτρολόγων Μηχανικών & Τεχνολογίας Υπολογιστών του Πανεπιστημίου Πατρών
+                το ακαδημαϊκό έτος 2020-2021.
+            </span>
+        </div>
+    </footer>
+    <!-- scripts -->
+    <script src="scripts/nav.js"></script>
+    <script src="scripts/redirect.js"></script>
+</body>
+</html>

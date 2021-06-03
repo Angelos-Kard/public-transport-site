@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="gr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Εισιτήρια</title>
+    <link rel="shortcut icon" href = "media/icons/bus_40.png" type="image/png">
+    <!-- css files -->
+    <link href="css/style_tickets.css" rel="stylesheet" type="text/css">
+    <link href="css/header_style.css"  rel="stylesheet" type="text/css">
+    <link href="css/footer_style.css"  rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <header>
+        <h1 id="title">Αστικές Συγκοινωνίες</h1>
+    </header>
+    <nav>
+        <ul>
+            <li>
+                <a href="news.html">Ανακοινώσεις</a>
+            </li>
+            <li>
+                <a href="route.html">Δρομολόγια</a>
+            </li>
+            
+            <li class = "dropdown">
+                <a href="tickets.html">Εισιτήρια</a>
+                <div class="dropdown-content">
+                    <a href="tickets.html#ticket-prices">Τιμές Εισιτηρίων</a>
+                    <a href="tickets.html#monthly-ticket">Μηνιαία Κάρτα</a>
+                    <a href="tickets.html#ticket-office">Εκδοτήρια</a>
+                </div>
+            </li>
+            
+            <li>
+                <a href="contact.html">Επικοινωνία</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="menu-wrap">
+        <input type="checkbox" class="toggler">
+        <div class = "hamburger"><div></div></div>
+        <div class="menu">
+            <div>
+                <div>
+                    <ul>
+                        <li>
+                            <a href="news.html">Ανακοινώσεις</a>
+                        </li>
+                        <li>
+                            <a href="route.html">Δρομολόγια</a>
+                        </li>
+                        <li>
+                            <a href="tickets.html">Εισιτήρια</a>
+                        </li>
+                        <li>
+                            <a href="contact.html">Επικοινωνία</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <main>
+        <div class="main-title">
+            <h2>Εισιτήρια</h2>
+        </div>
+        <div class = "main-box" id="ticket-prices">
+            <h2 >Τιμές Εισιτηρίων</h2>
+            <br>
+            <table class="ticket-pricing">
+                <thead>
+                    <tr>
+                        <th>Τύπος Εισιτηρίου</th>
+                        <th>Ζώνη Α</th>
+                        <th>Ζώνη Β</th>
+                    </tr>
+                </thead>
+                <tbody id="pricing-body">
+                    <tr>
+                        <td>Μειωμένο</td>
+                        <td>0.60€</td>
+                        <td>0.80€</td>
+                    </tr>
+                    <tr>
+                        <td>Κανονικό</td>
+                        <td>1.10€</td>
+                        <td>1.50€</td>
+                    </tr>
+                    <tr>
+                        <td>Επιβαρυμένο</td>
+                        <td colspan="2">2.00€</td>
+                    </tr>
+                </tbody>
+                
+            </table>
+        </div>
+
+        <div class="main-box" id="monthly-ticket">
+            <h2>Μηνιαία Κάρτα</h2>
+            <br>
+            <table class="ticket-pricing">
+                <thead>
+                    <tr>
+                        <th>Τύπος Εισιτηρίου</th>
+                        <th>Ζώνη Α</th>
+                        <th>Ζώνη Β</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Μειωμένο</td>
+                        <td>27.50€</td>
+                        <td>37.50€</td>
+                    </tr>
+                    <tr>
+                        <td>Κανονικό</td>
+                        <td>55.00€</td>
+                        <td>72.00€</td>
+                    </tr>
+                </tbody>
+                
+            </table>
+        </div>
+
+        <div class="main-box" id="ticket-office">
+            <h2>Εκδοτήρια</h2>
+            <br>
+            <table class="table-office">
+                <thead>
+                    <tr>
+                        <th>Εισιτήρια</th>
+                        <th>Μηνιαίες Κάρτες</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="https://www.google.com/maps/search/?api=1&query=Πλατεία+Γεωργίου+Πάτρα" target="_blank">Πλατεία Γεωργίου</a></td>
+                        <td rowspan="3"><a href="https://www.google.com/maps/search/?api=1&query=Αγιού+Ανδρέου+9+Πάτρα" target="_blank">Κεντρικά Γραφεία, Αγιού Ανδρέου 9</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://www.google.com/maps/search/?api=1&query=Πανεπιστημιακό+Νοσοκομείο+Ρίου" target="_blank">Πανεπιστημιακό Νοσοκομείο Ρίου</a></td>
+                        
+                    </tr>
+                    <tr>
+                        <td><a href="https://www.google.com/maps/search/?api=1&query=Parking+Περιβολάς" target="_blank">Parking Περιβολάς</a></td>
+                    </tr>
+                </tbody>
+                
+            </table>
+        </div>
+
+    </main>
+    <footer>
+        <ul id=footermenu>
+            <li>
+                <a href="news.html">Ανακοινώσεις</a>
+            </li>
+            <li>
+                <a href="route.html">Δρομολόγια</a>
+            </li>
+            <li>
+                <a href="tickets.html">Εισιτήρια</a>
+            </li>
+            <li>
+                <a href="contact.html">Επικοινωνία</a>
+            </li>
+        </ul>
+        <div class="infos">
+            <ul id=contactinfo>
+                <li>
+                    Διεύθυνση: Οδός Αβύσσου 0
+                </li>
+                <li>
+                    Τηλέφωνο: +30 0123456789
+                </li>
+                <li>
+                    Email: www.someone@email.com
+                </li>
+            </ul>
+            <ul id="otherinfo">
+                <li>
+                    <a href="">Πολιτική cookies</a>
+                </li>
+                <li>
+                    <a href="">Όροι Χρήσης</a>
+                </li>
+                <li>
+                    <a href="">Δεδομένα</a>
+                </li>
+            </ul>
+            <span id="siteinfo">© Η ιστοσελίδα αναπτύχθηκε στα πλαίσια του μαθήματος Προγραμματισμός Διαδικτύου 
+                του Τμήματος Ηλεκτρολόγων Μηχανικών & Τεχνολογίας Υπολογιστών του Πανεπιστημίου Πατρών
+                το ακαδημαϊκό έτος 2020-2021.
+            </span>
+        </div>
+    </footer>
+    <!-- scripts -->
+    <script src="scripts/nav.js"></script>
+    <script src="scripts/tickets.js"></script>
+    <script src="scripts/redirect.js"></script>
+</body>
+</html>
