@@ -1,9 +1,9 @@
 # Public Transport Site
 Ομαδικό Project
 
-- Καλδής Χρήστος @ChrisKaldis
+- Καλδής Χρήστος (@[ChrisKaldis](https://github.com/ChrisKaldis))
 
-- Καρδούτσος Άγγελος
+- Καρδούτσος Άγγελος (@[Angelos-Kard](https://github.com/Angelos-Kard))
 
 Η εργασία αυτή υλοποιήθηκε στα πλαίσια του μαθήματος "Προγραμματισμός Διαδικτύου" για το ακαδημαϊκό έτος 2020-2021.
 
