@@ -167,8 +167,9 @@ exports.specificRoutePage = (req, res) => {
             {
                 layout: "main.hbs",
                 title: req.params.routeID + " - " + results[0].onomaGrammis,
-                lineName: req.params.routeID + " - " + results[0].onomaGrammis,
-                bus_stop: results, 
+                lineName: req.params.routeID + ' - "' + results[0].onomaGrammis + '"',
+                bus_stop: results,
+                day_time: daysAndTime, 
                 styles: [
                     {cssFile: "variables.css"},
                     {cssFile: "routeSpecific_style.css"}

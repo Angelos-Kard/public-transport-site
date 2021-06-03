@@ -3,27 +3,19 @@
 
 
     <div class="main-box" id="timetable">
-        <div class="accordion"><h3>Δρομολόγια</h3></div>
+        <div class="accordion"><h3>Ώρες Δρομολογίων (από αφετηρία)</h3></div>
         <div class="panel">
             <hr class="solid">
-            <table>
-                <thead>
-                    <tr>
-                        {{#each days}}
-                            <th></th>
+            {{#each day_time}}
+                <button class="accordion btn-accordion">{{this.days}}</button>
+                <div class="panel">
+                    <ul class="lists">
+                        {{#each this.time}}
+                            <li>{{this}}</li>
                         {{/each}}
-                    </tr>
-                </thead>
-                <tbody>
-                    {{#each time}}
-                        <tr>
-                            {{#each days}}
-                                <td></td>
-                            {{/each}}
-                        </tr>
-                    {{/each}}
-                </tbody>
-            </table>
+                    </ul>
+                </div>
+            {{/each}}
         </div>
     </div>
 
@@ -31,7 +23,7 @@
         <div class="accordion"><h3>Στάσεις</h3></div>
         <div class="panel">
             <hr class="solid">
-            <ul id="stops">
+            <ul class="lists">
                 {{#each bus_stop}}
                     <li>{{this.onomaStasis}}</li>
                 {{/each}}

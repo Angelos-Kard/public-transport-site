@@ -43,24 +43,48 @@ hr.solid {
     border-top: 3px solid #8ad8ed;
 }
 
-#stops {
+.lists {
     list-style: none;
     border-left: .5em solid #8ad8ed;
     padding: 2em;
 }
 
-#stops li {
+.lists li {
     margin: .5em;
     padding: 2px;
     font-size: 2 rem;
 }
 
-#stops li a:hover {
+.lists li a:hover {
     text-decoration: underline;
     color: var(--link-color-hover);
 }
 
-#stops li a {
+.lists li a {
     color: var(--link-color);
     text-decoration: none;
+}
+
+.btn-accordion {
+    background-color: var(--subtitle-color);
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    transition: 0.4s;
+}
+  
+.btn-accordion.active, .btn-accordion:hover {
+    background-color: var(--light-main);
+}
+  
+
+.panel {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
 }

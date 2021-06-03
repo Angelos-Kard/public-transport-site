@@ -1,4 +1,7 @@
 :root {
     --link-color: rgba(19, 65, 83, 1);
     --link-color-hover: #003983;
+    --strong-main: rgba(19, 65, 83, 1);
+    --light-main: rgba(46,130,139,1);
+    --subtitle-color: #8ad8ed;
 }
