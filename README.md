@@ -14,7 +14,7 @@
 1. [Κατεβάζετε τον κώδικα](https://github.com/Angelos-Kard/public-transport-site/archive/refs/heads/master.zip)
 2. Επιλέγεται το φάκελο στον οποίο αποσυμπιέζεται το .zip αρχείο
 
-**Περίπτωση Α**
+- **Περίπτωση Α**
 
 3. Ανοίγετε το τερματικό στο συγκεκριμένο φάκελο
 4. Εκτελείτε την εντολή `npm install -dev` με σκοπό να εγκαθιστούν τα dependencies και τα devDependencies
@@ -29,7 +29,7 @@ PASSWORD=...
 DB_NAME=...
 ```
 
-**Περίπτωση Β**
+- **Περίπτωση Β**
 
 3. Εκτελείται το αρχείο [initProject.bat](initProject.bat)
 
