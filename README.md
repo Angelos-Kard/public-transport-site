@@ -31,7 +31,7 @@ DB_NAME=...
 
 - **Περίπτωση Β**
 
-3. Εκτελείτε το αρχείο [initProject.bat](initProject.bat)
+3. Εκτελείτε το αρχείο [initProject.bat](initProject.bat) (για Windows)
 
 ## Dependencies
 - [express](https://github.com/expressjs/express)
