@@ -103,3 +103,28 @@ exports.getArticles = (callback) => {
         });
     });
 }
+
+
+/**
+ * A function that retrieves a line's route.
+ * 
+ * @param {String} lineId The id of the line.
+ * @param {modelCallback} callback The callback that handles the error message and the retrieved data.
+ */
+exports.getLineDetails = (lineId, callback) => {
+    con = connectToDB();
+
+    con.connect((err)=>{
+        if (err) console.log(err)
+
+        con.query("SELECT Pernaei.seira, Pernaei.ora, Pernaei.imera, Stasi.onoma AS 'onomaStasis', Stasi.geografikiThesi, Stasi.zoni, Stasi.dieuthinsi, Grammi.onoma AS 'onomaGrammis' \
+        FROM ((Pernaei JOIN Stasi ON Pernaei.stasiID = Stasi.id) JOIN Grammi ON Pernaei.grammiID = Grammi.id) \
+        WHERE Pernaei.grammiID = ? \
+        ORDER BY Pernaei.seira ASC", [lineId], (err, results, fields) => {
+            if (err) callback(err, null);
+            
+            callback(null, results);
+            con.end();
+        });
+    });
+}

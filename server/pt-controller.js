@@ -154,7 +154,34 @@ exports.contactPage = (req, res) => {
  * 
  */
 exports.specificRoutePage = (req, res) => {
-    res.redirect("/route");
+
+    model.getLineDetails(req.params.routeID, (err, results) => {
+
+        if (results[0] == undefined) res.redirect("/route");
+        else
+        {
+
+            const daysAndTime = fixBusStopsTimetable(results[0].ora, results[0].imera);
+
+            res.render("route_specific", 
+            {
+                layout: "main.hbs",
+                title: req.params.routeID + " - " + results[0].onomaGrammis,
+                lineName: req.params.routeID + " - " + results[0].onomaGrammis,
+                bus_stop: results, 
+                styles: [
+                    {cssFile: "variables.css"},
+                    {cssFile: "routeSpecific_style.css"}
+                ],
+                scripts: [
+                    {jsFile: "accordion.js"},
+                    {jsFile: "redirect.js"}
+                ]
+            });
+        }
+        
+    })
+    
 }
 
 /**
@@ -215,4 +242,39 @@ function fixDates (results) {
         results[i].imerominia = newDate;
     }
     return results;
+}
+
+/**
+ * A function that fixes the format of days and hours of the routes in order to be handled by hbs. 
+ * 
+ * @access private
+ * 
+ * @param {String} time 
+ * @param {String} days 
+ * @returns {Array.<JSON>} An array of JSON objects.
+ */
+function fixBusStopsTimetable (time, days) {
+
+    const daysOfWeek = ["Δευτέρα", "Τρίτη", "Τετάρτη", "Πέμπτη", "Παρασκευή", "Σάββατο", "Κυριακή", "Αργίες"];
+    const newAr = [];
+    const newTime = time.split("/");
+    const newDays = days.split("/");
+
+
+
+    for (let i in newTime)
+    {
+        let accum = [];
+        newTime[i] = newTime[i].split(",")
+
+        for (let j = 0; j < 8; j++)
+        {
+            if (newDays[i][j] != "_") accum.push(daysOfWeek[j]);
+        }
+
+        newAr.push({"days": accum.join(", "), time: newTime[i]})
+    }
+    
+    return newAr;
+
 }

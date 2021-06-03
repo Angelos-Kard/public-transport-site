@@ -1,0 +1,45 @@
+<main>
+    <h2>Δρομολόγιο {{lineName}}</h2>
+
+
+    <div class="main-box accordion" id="timetable">
+        <h3>Δρομολόγια</h3>
+        <table>
+                <thead>
+                    <tr>
+                        {{#each days}}
+                            <th></th>
+                        {{/each}}
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each time}}
+                        <tr>
+                            {{#each days}}
+                                <td></td>
+                            {{/each}}
+                        </tr>
+                    {{/each}}
+                </tbody>
+
+        </table>
+    </div>
+
+    <div class="main-box accordion" id="bus-stops">
+        <h3>Στάσεις</h3>
+        <div class="panel">
+            <ul id="stops">
+                {{#each bus_stop}}
+                    <li>{{this.onomaStasis}}</li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-box accordion" id="line-map">
+        <h3>Χάρτης</h3>
+
+
+    </div>
+
+</main>
