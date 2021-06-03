@@ -1,21 +1,10 @@
-const newsHome = document.getElementById("latestNews");
+const newsHome = document.querySelectorAll(".articleNews");
 
-for( let i = 0 ; i < 3 ; i++ ) {
-
-    let newInHome = document.createElement("div");
-    newInHome.className = "articleNews";
-    newInHome.addEventListener("click", function() {
-        location.href = "news.html#" + newsList[i][3];
+for(let nodeI of newsHome) {
+    
+    nodeI.addEventListener("click", function() {
+        location.href = "news.html#" + this.id;
     });
 
-    let newsTitle = document.createElement("h3");
-    newsTitle.textContent = newsList[i][1];
-    newInHome.appendChild(newsTitle);
-
-    let newsDate = document.createElement("span");
-    newsDate.textContent = "Ημερομηνία: " + newsList[i][0];
-    newInHome.appendChild(newsDate);
-
-    newsHome.appendChild(newInHome);
-
+    
 }
