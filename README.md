@@ -31,8 +31,13 @@ DB_NAME=...
 
 - **Περίπτωση Β**
 
-3. Εκτελείται το αρχείο [initProject.bat](initProject.bat)
+3. Εκτελείτε το αρχείο [initProject.bat](initProject.bat)
 
 ## Dependencies
-- 
-[Site link](https://angelos-kard.github.io/public-transport-site/)
+- [express](https://github.com/expressjs/express)
+- [express-handlebars](https://github.com/express-handlebars/express-handlebars)
+- [mysql](https://github.com/mysqljs/mysql)
+- [dotenv](https://github.com/mysqljs/mysql)
+
+## Ιστοσελίδα
+- [x] [Site link](https://angelos-kard.github.io/public-transport-site/)
