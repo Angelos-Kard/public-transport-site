@@ -40,4 +40,4 @@ DB_NAME=...
 - [dotenv](https://github.com/mysqljs/mysql)
 
 ## Ιστοσελίδα
-- [x] [Site link](https://angelos-kard.github.io/public-transport-site/)
+- [Σύνδεσμος](https://public-transport-server.herokuapp.com/index) (Ο server "τρέχει" στο Heroku)
