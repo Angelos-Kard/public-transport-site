@@ -34,6 +34,33 @@ h2 {
 
 .panel {
     padding: 0 18px;
-    display: block;
+    display: none;
     overflow: hidden;
+    cursor: initial;
+}
+
+hr.solid {
+    border-top: 3px solid #8ad8ed;
+}
+
+#stops {
+    list-style: none;
+    border-left: .5em solid #8ad8ed;
+    padding: 2em;
+}
+
+#stops li {
+    margin: .5em;
+    padding: 2px;
+    font-size: 2 rem;
+}
+
+#stops li a:hover {
+    text-decoration: underline;
+    color: var(--link-color-hover);
+}
+
+#stops li a {
+    color: var(--link-color);
+    text-decoration: none;
 }
