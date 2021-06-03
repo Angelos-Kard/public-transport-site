@@ -1,6 +1,6 @@
 {
   "name": "public-transport-site",
-  "version": "2.0.0",
+  "version": "1.0.0",
   "description": "[Site link](https://angelos-kard.github.io/public-transport-site/)",
   "main": "index.js",
   "scripts": {

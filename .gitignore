@@ -2,3 +2,4 @@ db_cred.txt
 node_modules
 .env
 database/public_transport_site.sql
+initProject.bat
