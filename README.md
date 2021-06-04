@@ -1,4 +1,4 @@
-# Public Transport Site
+# Public Transportation Site
 Ομαδικό Project
 
 - Καλδής Χρήστος (@[ChrisKaldis](https://github.com/ChrisKaldis))
@@ -46,12 +46,22 @@ DB_NAME=...
 ## Αρχεία
 Σε αυτή την ενότητα θα περιγραφούν οι εργασίες, που επιτελούν τα αρχεία του package. Θα τα χωρίσουμε σε δύο κατηγορίες: front-end και back-end.
 
-### Front-end
+### Back-end
 - [index.js](./index.js): Επιτελεί την μέθοδο `listen` του `Express` object, ώστε να ξεκινήσει ο server.
 - [app.js](./app.js): Φορτώνει τις απαραίτητες βιβλιοθήκες, όπως `express` και `express-handlebars` και αρχικοποιεί τα handlebars ορίζοντας τη θέση των views, static φακέλους, καθώς και `Helpers`.
 - [/server/pt-routes.js](./server/pt-routes.js): Χειρίζεται τα αιτήματα του client και καλεί τις κατάλληλες συναρτήσεις από το [pt-controller.js](./server/pt-controller.js).
 - [/server/pt-controller.js](./server/pt-controller): Σκοπός των συναρτήσεών του είναι να κάνει render τις σελίδες, θέτοντας τις κατάλληλες τιμές στις μεταβλητές. Όταν κρίνεται απαραίτητο, καλεί συναρτήσεις από το [pt-model.js](./server/pt-model.js), ώστε να προσθέσει δεδομένα από τη βάση δεδομένων.
-- [/server/pt-model.js](./server/pt-model.js): 
+- [/server/pt-model.js](./server/pt-model.js): Οι συναρτήσεις του επικοινωνούν με τη βάση δεδομένων, ανακτούν δεδομένα, τα επεξεργάζονται και, τέλος, τα στέλνουν στο [pt-controller.js](./server/pt-controller.js)
+- [/database](./database): Περιέχει αρχεία για την περιγραφή της βάσης (ERD MOdel και Σχχεσιακό Μοντέλο), καθώς και το αρχείο [public_transport_site_28_5.sql](./database/public_transport_site_28_5.sql), το οποίο περιέχει τους πίνακες και ορισμένα δεδομένα.
+
+### Front-end
+- [/views](./views): Οι σελίδες της ιστοσελίδας ως `.hbs`. Κάθε `.hbs` αρχείο αντιστοιχεί σε μία σελίδα. Το αρχείο [main.hbs](./views/layouts/main.hbs) περιέχει τον κώδικα html, ο οποίος είναι κοινός για όλες τις ιστοσελίδες.
+- [/css](./css): Περιέχει τα `.css` αρχεία για τη μορφοποίηση των σελίδων. Κάθε αρχείο αφορά μία σελίδα, με εξαίρεση ορισμένα αρχεία, τα οποία αφορούν ορσιμένα κοινά στοιχεία των σελίδων. 
+- [/scripts](./scripts): Περιέχει του κώδικες Javascript, τους οποίους φορτώνουν οι σελίδες και εκτελούνται στην πλευρά του client.
+
+### Επιπλέον αρχεία και φακέλους
+- [/external](./external): Screenshots, παρουσιάσεις και αναφορές.
+- [/docs](./docs):  
 
 ## Ιστοσελίδα
 - [Σύνδεσμος](https://public-transport-server.herokuapp.com/index) (Ο server "τρέχει" στο Heroku)
