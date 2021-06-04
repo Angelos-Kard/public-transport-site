@@ -14,7 +14,7 @@ fieldset {
     box-shadow: 2px 2px 15px #134153;
 }
 
-fieldset input {
+fieldset select {
     margin: 1em;
     padding:.5em;
 }
@@ -26,6 +26,8 @@ label {
 .submitbutton {
     margin: 1em auto;
     color: #134153;
+    font-size: 100%;
+    padding: 10px 10px;
 }
 
 /* Extra small devices (phones, 600px and down) */

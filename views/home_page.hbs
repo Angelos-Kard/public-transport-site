@@ -8,14 +8,16 @@
             </p>
         </div>
         <div class="bestpath">
-            <h2>Εύρεση διαδρομής</h2>
+            <h2>Εύρεση Πλησιέστερης Στάσης</h2>
             <form>
                 <fieldset>
                     <label for="line"> Επίλεξε γραμμή: </label>
-                    <input list="line" name="line" placeholder="Γραμμή Λεωφορείου">
-                    <datalist id="line">
-                    </datalist>
-                    <label for="station"> Επίλεξε στάση: </label>
+                    <select id="line" name="line" placeholder="Γραμμή Λεωφορείου">
+                        {{#each allLines}}
+                            <option value="{{this.id}}">{{this.id}} -- {{this.onoma}}</option>
+                        {{/each}}
+                    </select>
+                    {{!-- <label for="station"> Επίλεξε στάση: </label>
                     <input list="station" name="station" placeholder="Στάση Λεωφορείου">
                     <datalist id="station">
                     </datalist>
@@ -24,10 +26,11 @@
                     <label for="desination"> Επίλεξε προορισμό: </label>
                     <input list="destination" name="destination" placeholder="Στάση Προορισμού">
                     <datalist id="destination">
-                    </datalist>
+                    </datalist> --}}
                 </fieldset>
                 <input type="submit" value="Βέλτιστη Διαδρομή" class="submitbutton">
             </form>
+            <span id="answer"></span>
         </div>
         <div id="latestNews">
             <h2>Τελευταίες ανακοινώσεις</h2>

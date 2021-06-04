@@ -1,10 +1,14 @@
 'use strict';
 
 const express = require('express');
+const app = require("../app");
 //const { route } = require('../app');
 const router = express.Router();
 
 const ptController = require("./pt-controller");
+
+router.use(express.urlencoded({extended: true}));
+router.use(express.json());
 
 router.get('/', ptController.homePage);
 
@@ -25,4 +29,7 @@ router.get("/contact.html", ptController.htmlRedirection);
 
 router.get("/route/:routeID", ptController.specificRoutePage);
 
+//=================================================================
+
+router.post("/nearest_stop", ptController.findNearestStop);
 module.exports = router;
