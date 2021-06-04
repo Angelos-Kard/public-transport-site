@@ -33,15 +33,23 @@ DB_NAME=...
 
 3. Εκτελείτε το αρχείο [initProject.bat](initProject.bat) (για Windows), το οποίο θα ανοίξει ένα cmd παράθυρο.
 4. Ακολουθείτες τις οδηγίες που εμφανίζονται στο cmd παράθυρο.
-Το initProject.bat αρχείο θα κατεβάσει τα dependencies, θα δημιουργήσει το .env αρχείο (αν δεν υπάρχει) στη μορφή που περιγράφηκε προηγουμένως (Περίπτωση Α, Βήμα 5) και τέλος θα ξεκινήσει τον server. Σε περίπτωση που ξανατρέξετε το αρχείο ή τα ανωτέρω αρχεία έχουν εγκαταστηθεί, τότε θα ξεκινήσει μόνο ο server.
+Το `initProject.bat` αρχείο θα κατεβάσει τα dependencies, θα δημιουργήσει το `.env` αρχείο (αν δεν υπάρχει) στη μορφή που περιγράφηκε προηγουμένως (Περίπτωση Α, Βήμα 5) και τέλος θα ξεκινήσει τον server. Σε περίπτωση που ξανατρέξετε το αρχείο ή τα ανωτέρω αρχεία έχουν εγκαταστηθεί ήδη, τότε το .bat αρχείο θα ξεκινήσει μόνο τον server.
 
-
+Σε περίπτωση πο θέλετε να δοκιμάσετε τον server με μία δική σας βάση δεδομένων, παρέχεται το αρχείο [public_transport_site_28_5.sql](./database/public_transport_site_28_5.sql), το οποίο περιέχει τους απαραίτητους πίνακες, καθώς και δεδομένα.
 
 ## Dependencies
 - [express](https://github.com/expressjs/express)
 - [express-handlebars](https://github.com/express-handlebars/express-handlebars)
 - [mysql](https://github.com/mysqljs/mysql)
 - [dotenv](https://github.com/mysqljs/mysql) (devDependency)
+
+## Αρχεία
+Σε αυτή την ενότητα θα περιγραφούν οι εργασίες, που επιτελούν τα αρχεία του package. Θα τα χωρίσουμε σε δύο κατηγορίες: front-end και back-end
+
+### Front-end
+- [index.js](./index.js): Επιτελεί την μέθοδο `listen` του `Express` object, ώστε να ξεκινήσει ο server.
+- [app.js](./app.js): Φορτώνει τις απαραίτητες βιβλιοθήκες, όπως `express` και `express-handlebars` και αρχικοποιεί τα handlebars ορίζοντας τη θέση των views, static φακέλους, καθώς και `Helpers`
+- [/server/pt-routes.js](./server/pt-routes.js): Δέχεται  
 
 ## Ιστοσελίδα
 - [Σύνδεσμος](https://public-transport-server.herokuapp.com/index) (Ο server "τρέχει" στο Heroku)
