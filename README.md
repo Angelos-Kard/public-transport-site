@@ -44,12 +44,14 @@ DB_NAME=...
 - [dotenv](https://github.com/mysqljs/mysql) (devDependency)
 
 ## Αρχεία
-Σε αυτή την ενότητα θα περιγραφούν οι εργασίες, που επιτελούν τα αρχεία του package. Θα τα χωρίσουμε σε δύο κατηγορίες: front-end και back-end
+Σε αυτή την ενότητα θα περιγραφούν οι εργασίες, που επιτελούν τα αρχεία του package. Θα τα χωρίσουμε σε δύο κατηγορίες: front-end και back-end.
 
 ### Front-end
 - [index.js](./index.js): Επιτελεί την μέθοδο `listen` του `Express` object, ώστε να ξεκινήσει ο server.
-- [app.js](./app.js): Φορτώνει τις απαραίτητες βιβλιοθήκες, όπως `express` και `express-handlebars` και αρχικοποιεί τα handlebars ορίζοντας τη θέση των views, static φακέλους, καθώς και `Helpers`
-- [/server/pt-routes.js](./server/pt-routes.js): Δέχεται  
+- [app.js](./app.js): Φορτώνει τις απαραίτητες βιβλιοθήκες, όπως `express` και `express-handlebars` και αρχικοποιεί τα handlebars ορίζοντας τη θέση των views, static φακέλους, καθώς και `Helpers`.
+- [/server/pt-routes.js](./server/pt-routes.js): Χειρίζεται τα αιτήματα του client και καλεί τις κατάλληλες συναρτήσεις από το [pt-controller.js](./server/pt-controller.js).
+- [/server/pt-controller.js](./server/pt-controller): Σκοπός των συναρτήσεών του είναι να κάνει render τις σελίδες, θέτοντας τις κατάλληλες τιμές στις μεταβλητές. Όταν κρίνεται απαραίτητο, καλεί συναρτήσεις από το [pt-model.js](./server/pt-model.js), ώστε να προσθέσει δεδομένα από τη βάση δεδομένων.
+- [/server/pt-model.js](./server/pt-model.js): 
 
 ## Ιστοσελίδα
 - [Σύνδεσμος](https://public-transport-server.herokuapp.com/index) (Ο server "τρέχει" στο Heroku)
