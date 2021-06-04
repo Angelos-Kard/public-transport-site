@@ -17,8 +17,8 @@
 - **Περίπτωση Α**
 
 3. Ανοίγετε το τερματικό στο συγκεκριμένο φάκελο
-4. Εκτελείτε την εντολή `npm install -dev` με σκοπό να εγκαθιστούν τα dependencies και τα devDependencies
-5. "Τρέχετε" τον server τοπικά εκτελώντας στο τερματικό την εντολή `npm run debug`.
+4. Εκτελείτε την εντολή `npm install -dev` με σκοπό να εγκαθιστούν τα dependencies και τα devDependencies (ή την εντολή `npm install` για να εγκαταστηθούν μόνο τα dependencies)
+5. "Τρέχετε" τον server τοπικά εκτελώντας στο τερματικό με την εντολή `npm run debug` (χρήση nodemon) ή `node ./index.js`.
 Για να τρέξει ο server τοπικά, απαιτείται να οριστούν ορισμένες enviromental variables, ώστε να είναι δυνατή η επικοινωνία με τη βάση δεδομένων.
 Επομένως πρέπει να οριστεί ένα `.env` αρχείο. Το αρχείο αυτό πρέπει να βρίσκεται στον root φάκελο και να έχει τη μορφή:
 ```
@@ -31,13 +31,17 @@ DB_NAME=...
 
 - **Περίπτωση Β**
 
-3. Εκτελείτε το αρχείο [initProject.bat](initProject.bat) (για Windows)
+3. Εκτελείτε το αρχείο [initProject.bat](initProject.bat) (για Windows), το οποίο θα ανοίξει ένα cmd παράθυρο.
+4. Ακολουθείτες τις οδηγίες που εμφανίζονται στο cmd παράθυρο.
+Το initProject.bat αρχείο θα κατεβάσει τα dependencies, θα δημιουργήσει το .env αρχείο (αν δεν υπάρχει) στη μορφή που περιγράφηκε προηγουμένως (Περίπτωση Α, Βήμα 5) και τέλος θα ξεκινήσει τον server. Σε περίπτωση που ξανατρέξετε το αρχείο ή τα ανωτέρω αρχεία έχουν εγκαταστηθεί, τότε θα ξεκινήσει μόνο ο server.
+
+
 
 ## Dependencies
 - [express](https://github.com/expressjs/express)
 - [express-handlebars](https://github.com/express-handlebars/express-handlebars)
 - [mysql](https://github.com/mysqljs/mysql)
-- [dotenv](https://github.com/mysqljs/mysql)
+- [dotenv](https://github.com/mysqljs/mysql) (devDependency)
 
 ## Ιστοσελίδα
 - [Σύνδεσμος](https://public-transport-server.herokuapp.com/index) (Ο server "τρέχει" στο Heroku)
