@@ -61,7 +61,7 @@ DB_NAME=...
 
 ### Επιπλέον αρχεία και φακέλους
 - [/external](./external): Screenshots, παρουσιάσεις και αναφορές.
-- [/docs](./docs):  
+- [/docs](./docs):  Περιέχει στατικές σελίδες `.html`, οι οποίες αποτέλεσαν πρώτυπα για τη δημιουργία των `.hbs` αρχείων.
 
 ## Ιστοσελίδα
 - [Σύνδεσμος](https://public-transport-server.herokuapp.com/index) (Ο server "τρέχει" στο Heroku)
