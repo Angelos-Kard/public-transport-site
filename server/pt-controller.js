@@ -2,6 +2,14 @@
 
 const model = require("./pt-model-sql");
 
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+}
+
+const API_KEY = process.env.GOOGLE_KEY;
+
+const fetch = require("node-fetch");
+
 /**
  * Renders site's home page.
  * 
@@ -10,14 +18,14 @@ const model = require("./pt-model-sql");
  */
 exports.homePage = (req, res) => {
 
-    model.getArticles((err, results) => {
+    model.getArticlesAndLines((err, results) => {
         const someNews = [];
 
-        results = fixDates(results);
+        results[0] = fixDates(results[0]);
         
         for (let i = 0; i < 3; i++)
         {
-            someNews.push(results[i]);
+            someNews.push(results[0][i]);
         }
 
         res.render("home_page", 
@@ -25,18 +33,20 @@ exports.homePage = (req, res) => {
             layout: "main.hbs", 
             title:"Αστικές Συγκοινωνίες",
             news: someNews,
+            allLines: results[1],
             styles: [
                 {cssFile: "style.css"},
                 {cssFile: "form_style.css"}
             ],
             scripts: [
                 //{jsFile: "news.js"},
-                {jsFile: "newsHome.js"}
+                {jsFile: "newsHome.js"},
+                {jsFile: "form_send_rec.js"}
             ]
         });
     })
-    
 }
+
 
 /**
  * Renders site's news page, after retrieving articles from DB.
@@ -213,6 +223,51 @@ exports.htmlRedirection = (req, res) => {
     res.redirect(newPath);
 }
 
+//================================== POST =================================
+exports.findNearestStop = (req, res) => {
+
+    model.getLineDetails(req.body.answer, (err, result) => {
+        if (err) console.log(err);
+
+        if (result.length != 0)
+        {
+            const formattedStops = formatStops(result);
+
+            const example = {
+                destination_addresses: ["Λεωφ. Ιπποκράτους, Πάτρα 265 04, Ελλάδα"],
+                origin_addresses: ["Μαραθώνιας Διαδρομής 47, Αχαρνές 136 72, Ελλάδα"],
+                rows: [
+                    {
+                        elements: [
+                            {
+                                distance: {text: "211 χλμ", value: 210625},
+                                duration: {text: "1 μέρες 19 ώρες", value: 154937},
+                                status: "OK"
+                            }
+                        ]
+                    }
+                ]
+            }
+            // fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?key=${API_KEY}&origins=${req.body.position}&mode=walking&destinations=${formattedStops[0]}&language=el&units=metric`)
+            // .then(res => res.json())
+            // .then(resul => {
+            //     console.log(resul);
+            //     res.send(resul);
+            // })
+
+            
+
+            example.stopsNames = formattedStops[1]
+            res.send(example);
+            console.log(formattedStops);
+        }
+
+        
+    })
+
+}
+
+
 /**
  * A function that creates a JSON object, which contains an array of JSON objects.
  * 
@@ -292,4 +347,23 @@ function fixBusStopsTimetable (time, days) {
     
     return newAr;
 
+}
+
+/**
+ * 
+ * @param {Array.<JSON>} results 
+ * @returns {String}
+ */
+function formatStops (results)
+{
+    let accum = "";
+    let newAr = []
+    for (let i in results)
+    {
+        let tempCoord = results[i].geografikiThesi.split(", ").join(",");
+        accum += tempCoord;
+        if (i != results.length-1) accum += "|";
+        newAr.push(results[i].onomaStasis);
+    }
+    return [accum, newAr];
 }

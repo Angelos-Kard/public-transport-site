@@ -104,6 +104,20 @@ exports.getArticles = (callback) => {
     });
 }
 
+exports.getArticlesAndLines = (callback) => {
+    con = connectToDB();
+
+    con.connect((err)=>{
+        if (err) console.log(err)
+
+        con.query("SELECT * FROM Nea ORDER BY Nea.imerominia DESC;\
+        SELECT * FROM Grammi ORDER BY Grammi.id", (err, results, fields) => {
+            if (err) callback(err, null);
+            callback(null, results);
+            con.end();
+        });
+    });
+}
 
 /**
  * A function that retrieves a line's route.
