@@ -255,11 +255,15 @@ exports.findNearestStop = (req, res) => {
             //     res.send(resul);
             // })
 
-            
+            fetch("https://restcountries.eu/rest/v2/name/greece?fullText=true")
+            .then(res => res.text())
+            .then(resul => {
+                console.log(resul);
+            })
 
-            example.stopsNames = formattedStops[1]
-            res.send(example);
-            console.log(formattedStops);
+            // example.stopsNames = formattedStops[1]
+            // res.send(example);
+            // console.log(formattedStops);
         }
 
         
