@@ -1,5 +1,7 @@
 'use strict';
 
+
+
 const model = require("./pt-model-sql");
 
 if (process.env.NODE_ENV !== 'production') {
@@ -240,6 +242,13 @@ exports.specificRoutePage = (req, res) => {
 
             const daysAndTime = fixBusStopsTimetable(results[0].ora, results[0].imera);
 
+            const tempAr = formatStops(results)[0].split("|");
+
+            for (let i in results)
+            {
+                results[i].geografikiThesi = tempAr[i]
+            }
+
             res.render("route_specific", 
             {
                 layout: "main.hbs",
@@ -260,6 +269,24 @@ exports.specificRoutePage = (req, res) => {
         
     })
     
+}
+
+exports.createMap = (req, res) => 
+{
+    model.getLineDetails("101", (err, results) => {
+        const map = new Map({
+            target: 'map',
+            layers: [
+              new TileLayer({
+                source: new OSM()
+              })
+            ],
+            view: new View({
+              center: [0, 0],
+              zoom: 0
+            })
+        });
+    })
 }
 
 /**

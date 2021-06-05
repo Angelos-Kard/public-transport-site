@@ -29,6 +29,8 @@ router.get("/contact.html", ptController.htmlRedirection);
 
 router.get("/route/:routeID", ptController.specificRoutePage);
 
+//router.get("/createMap", ptController.createMap);
+
 //=================================================================
 
 router.post("/nearest_stop", ptController.findNearestStop);

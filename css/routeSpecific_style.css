@@ -88,3 +88,8 @@ hr.solid {
     display: none;
     overflow: hidden;
 }
+
+.map {
+    height: 550px;
+    width: 100%;
+}

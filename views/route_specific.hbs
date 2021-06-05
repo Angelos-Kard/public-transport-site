@@ -25,7 +25,7 @@
             <hr class="solid">
             <ul class="lists">
                 {{#each bus_stop}}
-                    <li>{{this.onomaStasis}}</li>
+                    <li><a href="https://www.google.com/maps/search/?api=1&query={{this.geografikiThesi}}">{{this.onomaStasis}}</a></li>
                 {{/each}}
             </ul>
         </div>
@@ -35,7 +35,24 @@
         <div class="accordion"><h3>Χάρτης</h3></div>
         <div class="panel">
             <hr class="solid">
+            <div id="map" class="map"></div>
+            </div>
         </div>
     </div>
 
+<script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/build/ol.js"></script>
+                <script type="text/javascript">
+                    var map = new ol.Map({
+                        target: 'map',
+                        layers: [
+                        new ol.layer.Tile({
+                            source: new ol.source.OSM()
+                        })
+                        ],
+                        view: new ol.View({
+                        center: ol.proj.fromLonLat([37.41, 8.82]),
+                        zoom: 4
+                        })
+                    });
+</script>
 </main>
