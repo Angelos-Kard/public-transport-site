@@ -278,6 +278,9 @@ exports.htmlRedirection = (req, res) => {
 
 //================================== POST =================================
 /**
+ * A function which finds the nearest bus stop.
+ * 
+ * It finds the nearest bus stop among all the bus stops of a specific line, based on the client's current position.
  * 
  * @param {Request} req A Request object, which contains the line's id.
  * @param {Response} res A Response object
@@ -447,9 +450,16 @@ function fixBusStopsTimetable (time, days) {
 }
 
 /**
+ * A functions that returns a String of coordinations and an Array of bus stops.
+ * 
+ * - It changes the coordinations format based on https://developers.google.com/maps/documentation/distance-matrix/overview?hl=en_GB#request-parameters, so they can be accepted\
+ * by the API. 
+ * - It, also, stores all the names of the bus stops in an Array
+ * 
+ * @access private
  * 
  * @param {Array.<JSON>} results 
- * @returns {String}
+ * @returns {Array.<String, Array.<String>>} The String with the formatted Coordinations and the Array with the names of the bus stops.
  */
 function formatStops (results)
 {
