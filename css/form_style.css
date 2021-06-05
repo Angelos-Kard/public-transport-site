@@ -1,5 +1,10 @@
+div.centerForm {
+    display: flex;
+    justify-content: center;
+}
+
 form {
-    width: 80%;
+    width: 500px;
     margin: 1em;
     display: flex;
     flex-flow: column;
