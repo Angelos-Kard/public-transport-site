@@ -42,6 +42,7 @@ GOOGLE_KEY=...
 - [express](https://github.com/expressjs/express)
 - [express-handlebars](https://github.com/express-handlebars/express-handlebars)
 - [mysql](https://github.com/mysqljs/mysql)
+- [node-fetch](https://github.com/node-fetch/node-fetch)
 - [dotenv](https://github.com/mysqljs/mysql) (devDependency)
 
 ## Αρχεία
