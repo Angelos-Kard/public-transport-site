@@ -496,6 +496,7 @@ function formatStops (results)
 }
 
 /**
+ * A function that deletes the space between longitude and langitude
  * 
  * @access private
  * 
