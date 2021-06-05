@@ -35,6 +35,20 @@ hbs.handlebars.registerHelper("checkTicketType", function(varVal, fixedVal, opti
     return (fixedVal==varVal) ? options.fn(this) : options.inverse(this); 
 }); 
 
+
+hbs.handlebars.registerHelper("checkZone", function(allStops, options) {
+    let flagA = false;
+    let flagB = false;
+    for (let i in allStops)
+    {
+        if (allStops[i].zoni == "A") flagA = true;
+        else if(allStops[i].zoni == "B") flagB = true;
+    }
+
+    if (flagA && flagB) return "Α και Ζώνη Β";
+    else if (flagA) return "Α";
+    else return "Β";
+})
 //exports.hbs = hbs;
 
 module.exports = app;

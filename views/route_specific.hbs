@@ -1,5 +1,9 @@
 <main>
-    <h2>Δρομολόγιο {{lineName}}</h2>
+    <div class="subtitle">
+        <h2>Δρομολόγιο {{lineName}}</h2>
+        Απαιτείται εισιτήριο τύπου <strong>Ζώνη {{#checkZone bus_stop}}{{/checkZone}}</strong>
+    </div>
+    
 
 
     <div class="main-box" id="timetable">
@@ -25,7 +29,7 @@
             <hr class="solid">
             <ul class="lists">
                 {{#each bus_stop}}
-                    <li><a href="https://www.google.com/maps/search/?api=1&query={{this.geografikiThesi}}" target="_blank">{{this.onomaStasis}}</a></li>
+                    <li><a href="https://www.google.com/maps/search/?api=1&query={{this.geografikiThesi}}" target="_blank"><span title="Ζώνη {{this.zoni}}">{{this.onomaStasis}}</span></a></li>
                 {{/each}}
             </ul>
         </div>
