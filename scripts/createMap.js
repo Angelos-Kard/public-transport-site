@@ -32,10 +32,12 @@ window.initMap = function() {
 
 
             const marker = new google.maps.Marker({
-            position: latLng,
-            map: map,
-            //label: response[i].seira.toString(),
-            title: response[i].onomaStasis })
+                position: latLng,
+                map: map,
+                label: response[i].seira.toString(),
+                title: response[i].onomaStasis,
+                //icon: "/media/icons/bus_stop_40.png"
+            });
             
             
             const contentText = `<a href="https://www.google.com/maps/search/?api=1&query=${response[i].geografikiThesi}" target="_blank">Στάση: ${response[i].onomaStasis}</a>`
@@ -51,15 +53,15 @@ window.initMap = function() {
 
         map.setCenter(new google.maps.LatLng(
             response[Math.ceil(response.length/2)].geografikiThesi.split(",")[0],
-            response[0].geografikiThesi.split(",")[1]
+            response[Math.ceil(response.length/2)].geografikiThesi.split(",")[1]
         ));
 
         const connectLine = new google.maps.Polyline({
             path: coordsArray,
             geodesic: true,
-            strokeColor: '#FF0000',
+            strokeColor: '#8ad8ed',
             strokeOpacity: 1.0,
-            strokeWeight: 2
+            strokeWeight: 3
         });
         
         connectLine.setMap(map);

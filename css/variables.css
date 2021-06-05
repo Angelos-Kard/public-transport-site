@@ -1,5 +1,5 @@
 :root {
-    --link-color: rgba(19, 65, 83, 1);
+    --link-color: rgba(19, 65, 83, 1); /*#134153*/
     --link-color-hover: #003983;
     --link-color-visited: rgb(79, 4, 165);
     --strong-main: rgba(19, 65, 83, 1);
