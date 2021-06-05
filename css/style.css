@@ -79,7 +79,8 @@ hr.solid {
     justify-content: space-evenly;
 }
 
-.newsInfos ol li {        
+.newsInfos ol li {
+    margin: 0.5em; 
     justify-content: center;
     font-size: x-large;
 }
@@ -102,8 +103,7 @@ hr.solid {
 /* Small devices (portrait tablets and large phones, 600px and up) */
 
 @media only screen and (min-width: 600px) {
-
-
+    
 }
 
 @media only screen and (min-width: 992px) {

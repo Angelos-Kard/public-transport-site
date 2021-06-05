@@ -277,6 +277,11 @@ exports.htmlRedirection = (req, res) => {
 }
 
 //================================== POST =================================
+/**
+ * 
+ * @param {Request} req A Request object, which contains the line's id.
+ * @param {Response} res A Response object
+ */
 exports.findNearestStop = (req, res) => {
 
     model.getLineDetails(req.body.answer, (err, result) => {
