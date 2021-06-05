@@ -39,7 +39,7 @@ function sendPosition (position) {
             Aπόσταση: <strong>${response.distance}</strong><br>\
             Χρόνος Άφιξης: <strong>${response.durationText}</strong><br>\
             Διεύθυνση: "<strong>${response.address}</strong>"<br>\
-            <a href="https://www.google.com/maps/search/?api=1&query=${response.coords}">Δείτε τη στάση στο χάρτη</a>`
+            <a href="https://www.google.com/maps/search/?api=1&query=${response.coords}" target="_blank">Δείτε τη στάση στο χάρτη</a>`
     })
 }
 
@@ -48,7 +48,7 @@ let form = document.querySelector("form");
 function handleForm(event) { event.preventDefault(); } 
 form.addEventListener('submit', handleForm);
 
-const theBtn = document.querySelector(".submitbutton")
+const theBtn = document.querySelector(".submitbutton");
 
 theBtn.addEventListener("click", bringData);
 
