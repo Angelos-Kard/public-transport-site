@@ -103,15 +103,6 @@ hr.solid {
 
 @media only screen and (min-width: 600px) {
 
-    .welcome {
-        margin: 1em;
-        padding: 1em 4em;
-        border-width: 1px;
-        border-style: solid;
-        border-color: #134153;
-        box-shadow: 1px 2px 10px #134153;
-    }
-
 
 }
 
