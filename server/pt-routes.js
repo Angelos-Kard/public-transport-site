@@ -31,6 +31,8 @@ router.get("/route/:routeID", ptController.specificRoutePage);
 
 //router.get("/createMap", ptController.createMap);
 
+router.get("/allStopsMap/:routeID", ptController.mapData)
+
 //=================================================================
 
 router.post("/nearest_stop", ptController.findNearestStop);
