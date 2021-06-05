@@ -49,6 +49,7 @@ IF not exist ".\.env" (
     echo USER_DB=>>.env
     echo PASSWORD=>>.env
     echo DB_NAME=>>.env
+    echo GOOGLE_KEY=>>.env
     echo [32m"The .env file has been created"[0m
 )
 

@@ -23,6 +23,81 @@ h2 {
 }
 
 
+#min-stop {
+    /* display: none; */
+    width: 76%;
+    cursor: pointer;
+    display: none;
+    text-align: center;
+    margin: 2.2em;
+    padding: 1em;
+}
+
+a {
+    color: var(--link-color);
+}
+
+a:hover {
+    color: var(--link-color-hover);
+}
+
+hr.solid {
+    border-top: 2px solid var(--subtitle-color);
+}
+
+.articleNews {
+    background-color: var(--subtitle-color);
+    margin: 2em;
+    padding: 1em;
+    border: 1px solid #134153;
+    box-shadow: 1px 1px 10px #134153;
+}
+
+.articleNews:hover {
+    cursor: pointer;
+    box-shadow: 1px 1px 10px #2e828b;
+}
+
+.articleNews:active {
+    background-color: #2e828b;
+}
+
+.newsInfos {
+    border: .5em double #134153be;
+    margin: .5em;
+}
+
+.newsInfos h2 {
+    margin: 1em;
+}
+
+.newsInfos ol {
+    padding: 0;
+    margin: 5em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.newsInfos ol li {        
+    justify-content: center;
+    font-size: x-large;
+}
+
+.newsInfos ol li a {
+    color: #134153;
+    text-shadow: #2e828b 2px 2px 4px;
+}
+
+.newsInfos ol li a:hover {
+    text-shadow: #8ad8ed 2px 2px 2px;
+    text-decoration: none;
+}
+
+.newsInfos ol li a:active {
+    color: #2e828b;
+}
+
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 /*
@@ -31,70 +106,16 @@ h2 {
 }
 */
 @media only screen and (min-width: 992px) {
-    
-    
     #latestNews {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 1fr 3fr;
     }
-    
-    
+
     #latestNews h2 {
         grid-row: 1/2;
         grid-column: 1/4;
     }
     
-    .articleNews {
-        background-color: #8ad8ed;
-        margin: 2em;
-        padding: 1em;
-        border: 1px solid #134153;
-        box-shadow: 1px 1px 10px #134153;
-    }
-    
-    .articleNews:hover {
-        cursor: pointer;
-        box-shadow: 1px 1px 10px #2e828b;
-    }
-    
-    .articleNews:active {
-        background-color: #2e828b;
-    }
-
-    .newsInfos {
-        border: .5em double #134153be;
-        margin: .5em;
-    }
-
-    .newsInfos h2 {
-        margin: 1em;
-    }
-
-    .newsInfos ol {
-        padding: 0;
-        margin: 5em;
-        display: flex;
-        justify-content: space-evenly;
-    }
-
-    .newsInfos ol li {        
-        justify-content: center;
-        font-size: x-large;
-    }
-
-    .newsInfos ol li a {
-        color: #134153;
-        text-shadow: #2e828b 2px 2px 4px;
-    }
-
-    .newsInfos ol li a:hover {
-        text-shadow: #8ad8ed 2px 2px 2px;
-        text-decoration: none;
-    }
-
-    .newsInfos ol li a:active {
-        color: #2e828b;
-    }
 }
 

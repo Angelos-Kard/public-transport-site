@@ -26,8 +26,20 @@ function sendPosition (position) {
         )
         .then((response) => response.json())
         .then((response) => {
-            
-            console.log(response);
+            //console.log(response);
+
+            const ans = document.querySelector("#min-stop");
+
+            ans.style.display = "block";
+
+            ans.addEventListener("click", () => window.location = `https://www.google.com/maps/search/?api=1&query=${response.coords}`)
+
+            ans.innerHTML = `Η πλησιέστερη στάση της γραμμής είναι η στάση "<strong>${response.minStopName}</strong>"<br>\
+            <hr class="solid">\
+            Aπόσταση: <strong>${response.distance}</strong><br>\
+            Χρόνος Άφιξης: <strong>${response.durationText}</strong><br>\
+            Διεύθυνση: "<strong>${response.address}</strong>"<br>\
+            <a href="https://www.google.com/maps/search/?api=1&query=${response.coords}">Δείτε τη στάση στο χάρτη</a>`
     })
 }
 
