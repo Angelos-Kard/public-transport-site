@@ -261,6 +261,7 @@ exports.specificRoutePage = (req, res) => {
                     {cssFile: "routeSpecific_style.css"}
                 ],
                 scripts: [
+                    {jsFile: "createMap.js"},
                     {jsFile: "accordion.js"},
                     {jsFile: "redirect.js"}
                 ]
@@ -271,23 +272,23 @@ exports.specificRoutePage = (req, res) => {
     
 }
 
-exports.createMap = (req, res) => 
-{
-    model.getLineDetails("101", (err, results) => {
-        const map = new Map({
-            target: 'map',
-            layers: [
-              new TileLayer({
-                source: new OSM()
-              })
-            ],
-            view: new View({
-              center: [0, 0],
-              zoom: 0
-            })
-        });
-    })
-}
+// exports.createMap = (req, res) => 
+// {
+//     model.getLineDetails("101", (err, results) => {
+//         const map = new Map({
+//             target: 'map',
+//             layers: [
+//               new TileLayer({
+//                 source: new OSM()
+//               })
+//             ],
+//             view: new View({
+//               center: [0, 0],
+//               zoom: 0
+//             })
+//         });
+//     })
+// }
 
 /**
  * Clicking on link with the format "*.html", it redirects the user to the corresponding page.

@@ -36,23 +36,16 @@
         <div class="panel">
             <hr class="solid">
             <div id="map" class="map"></div>
-            </div>
         </div>
     </div>
+    
+    <script href="/scripts/createMap.js"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
+    <script>
+        
+    </script>
 
-<script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/build/ol.js"></script>
-                <script type="text/javascript">
-                    var map = new ol.Map({
-                        target: 'map',
-                        layers: [
-                        new ol.layer.Tile({
-                            source: new ol.source.OSM()
-                        })
-                        ],
-                        view: new ol.View({
-                        center: ol.proj.fromLonLat([37.41, 8.82]),
-                        zoom: 4
-                        })
-                    });
-</script>
 </main>
