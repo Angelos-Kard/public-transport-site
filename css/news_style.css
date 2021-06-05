@@ -20,8 +20,22 @@ h2 {
     box-shadow: 1px 1px 10px #134153;
 }
 
+h3 {
+    display: block;
+    transition-property: text-decoration;
+    transition-duration: 2s;
+    transition-timing-function: linear;
+    transition-delay: 1s;
+}
+
+h3:hover {
+    text-decoration: underline;
+    text-shadow: 1px 1px 10px #134153;
+}
+
 #news {
     padding: 0;
+    margin-bottom: 3em;
 }
 
 .article {
@@ -29,25 +43,21 @@ h2 {
     list-style: none;
     border-left: .5em solid #2e828b;
     background-color: #8ad8ed;
-    padding: 3em;
     margin: 1px;
     margin-right: 3em;
     margin-left: 3em;
 }
 
+.article:hover {
+    box-shadow: 1px 2px 10px #134153;
+}
+
 .article span {
     font-style: italic;
-    padding: 1em;
-    margin: 1em;
 }
 
 .article article {
     margin: 1em;
-}
-
-.article p {
-    margin: 1em;
-    padding: 0em 1em;
 }
 
 .article a {
@@ -66,15 +76,56 @@ h2 {
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+
+    .article {
+        padding: 1em;
+    }
     
+    .article span {
+        margin: 0;
+        padding: 0;
+    }
+
+    .article p {
+        margin: 2px;
+        padding: 1px;
+    }
+
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-    
+ 
+    .article {
+        padding: 2em;
+    }
+
+    .article span {
+        margin: 5px;
+        padding: 5px;
+    }
+
+    .article p {
+        margin: 6px;
+        padding: 6px;
+    }
+
 }
 
 @media only screen and (min-width: 992px) { /*For Laptops and Desktops*/
-    
+
+    .article {
+        padding: 3em;
+    }
+
+    .article span {
+        margin: .5em;
+        padding: .5em;
+    }
+
+    .article p {
+        margin: 1em;
+        padding: 0em 1em;
+    }
 
 }
