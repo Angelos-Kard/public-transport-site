@@ -45,6 +45,25 @@ h2 {
     margin: 1em;
 }
 
+.article p {
+    margin: 1em;
+    padding: 0em 1em;
+}
+
+.article a {
+    text-decoration: none;
+    color: var(--link-color);
+}
+
+.article a:hover {
+    text-decoration: underline;
+    color: var(--link-color-hover);
+}
+
+.article a:visited {
+    color: var(--link-color-visited);
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     

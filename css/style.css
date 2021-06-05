@@ -9,12 +9,19 @@ body {
     color: #134153;
 }
 
+main {
+    padding: 2em;
+}
+
 h2 {
     margin: 1em;
 }
 
+main div {
+    margin: 2em;
+}
+
 .welcome {
-    margin: 1em;
     padding: 1em 1em;
     border-width: 1px;
     border-style: solid;
@@ -63,7 +70,6 @@ hr.solid {
 
 .newsInfos {
     border: .5em double #134153be;
-    margin: .5em;
 }
 
 .newsInfos h2 {
@@ -103,26 +109,18 @@ hr.solid {
 
 @media only screen and (min-width: 600px) {
     
-    .welcome {
-        padding: 1em 4em;
-    }
-
     .welcome p {
         margin: 1em 1em;
-        padding: 1em 1em;
+        padding: 2em 5em;
     }
 
 }
 
 @media only screen and (min-width: 992px) {
 
-    .welcome {
-        padding: 1em 8em;
-    }
-
     .welcome p {
         margin: 1em 2em;
-        padding: 1em 2em;
+        padding: 2em 10em;
     }
 
     #latestNews {

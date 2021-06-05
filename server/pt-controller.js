@@ -122,7 +122,8 @@ exports.newsPage = (req, res) => {
             layout: "main.hbs", 
             title:"Ανακοινώσεις",
             styles: [
-                {cssFile: "news_style.css"}
+                {cssFile: "news_style.css"},
+                {cssFile: "variables.css"}
             ],
             scripts: [
                 //{jsFile: "news.js"},
