@@ -48,7 +48,7 @@ let form = document.querySelector("form");
 function handleForm(event) { event.preventDefault(); } 
 form.addEventListener('submit', handleForm);
 
-const theBtn = document.querySelector(".submitbutton")
+const theBtn = document.querySelector(".submitbutton");
 
 theBtn.addEventListener("click", bringData);
 
