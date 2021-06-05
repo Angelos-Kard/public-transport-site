@@ -1,5 +1,7 @@
 'use strict';
 
+
+
 const model = require("./pt-model-sql");
 
 if (process.env.NODE_ENV !== 'production') {
@@ -9,6 +11,58 @@ if (process.env.NODE_ENV !== 'production') {
 const API_KEY = process.env.GOOGLE_KEY;
 
 const fetch = require("node-fetch");
+
+const example = {
+    destination_addresses: ["Λεωφ. Ιπποκράτους, Πάτρα 265 04, Ελλάδα", "Λεωφ. Ιπποκράτους, Πάτρα 265 04, Ελλάδα", "Σουλίου 5, Ρίο 265 04, Ελλάδα", "Λεωφ. Ιπποκράτους, Πάτρα 265 04, Ελλάδα", "Erasmou, Panepistimioupoli Patron 265 04, Ελλάδα"],
+    origin_addresses: ["Μαραθώνιας Διαδρομής 47, Αχαρνές 136 72, Ελλάδα"],
+    rows: [
+        {
+            elements: [
+                {
+                    distance: {text: "211 χλμ", value: 210625},
+                    duration: {text: "1 μέρες 19 ώρες", value: 154937},
+                    status: "OK"
+                }
+            ]
+        },
+        {
+            elements: [
+                {
+                    distance: {text: "211 χλμ", value: 210982},
+                    duration: {text: "1 μέρες 19 ώρες", value: 155209},
+                    status: "OK"
+                }
+            ]
+        },
+        {
+            elements: [
+                {
+                    distance: {text: "211 χλμ", value: 211148},
+                    duration: {text: "1 μέρες 19 ώρες", value: 155327},
+                    status: "OK"
+                }
+            ]
+        },
+        {
+            elements: [
+                {
+                    distance: {text: "212 χλμ", value: 211513},
+                    duration: {text: "1 μέρες 19 ώρες", value: 155598},
+                    status: "OK"
+                }
+            ]
+        },
+        {
+            elements: [
+                {
+                    distance: {text: "212 χλμ", value: 211849},
+                    duration: {text: "1 μέρες 19 ώρες", value: 155879},
+                    status: "OK"
+                }
+            ]
+        },
+    ]
+}
 
 /**
  * Renders site's home page.
@@ -36,7 +90,8 @@ exports.homePage = (req, res) => {
             allLines: results[1],
             styles: [
                 {cssFile: "style.css"},
-                {cssFile: "form_style.css"}
+                {cssFile: "form_style.css"},
+                {cssFile: "variables.css"}
             ],
             scripts: [
                 //{jsFile: "news.js"},
@@ -187,6 +242,13 @@ exports.specificRoutePage = (req, res) => {
 
             const daysAndTime = fixBusStopsTimetable(results[0].ora, results[0].imera);
 
+            const tempAr = formatStops(results)[0].split("|");
+
+            for (let i in results)
+            {
+                results[i].geografikiThesi = tempAr[i]
+            }
+
             res.render("route_specific", 
             {
                 layout: "main.hbs",
@@ -209,6 +271,24 @@ exports.specificRoutePage = (req, res) => {
     
 }
 
+exports.createMap = (req, res) => 
+{
+    model.getLineDetails("101", (err, results) => {
+        const map = new Map({
+            target: 'map',
+            layers: [
+              new TileLayer({
+                source: new OSM()
+              })
+            ],
+            view: new View({
+              center: [0, 0],
+              zoom: 0
+            })
+        });
+    })
+}
+
 /**
  * Clicking on link with the format "*.html", it redirects the user to the corresponding page.
  * 
@@ -224,6 +304,14 @@ exports.htmlRedirection = (req, res) => {
 }
 
 //================================== POST =================================
+/**
+ * A function which finds the nearest bus stop.
+ * 
+ * It finds the nearest bus stop among all the bus stops of a specific line, based on the client's current position.
+ * 
+ * @param {Request} req A Request object, which contains the line's id.
+ * @param {Response} res A Response object
+ */
 exports.findNearestStop = (req, res) => {
 
     model.getLineDetails(req.body.answer, (err, result) => {
@@ -232,35 +320,70 @@ exports.findNearestStop = (req, res) => {
         if (result.length != 0)
         {
             const formattedStops = formatStops(result);
-
-            const example = {
-                destination_addresses: ["Λεωφ. Ιπποκράτους, Πάτρα 265 04, Ελλάδα"],
-                origin_addresses: ["Μαραθώνιας Διαδρομής 47, Αχαρνές 136 72, Ελλάδα"],
-                rows: [
-                    {
-                        elements: [
-                            {
-                                distance: {text: "211 χλμ", value: 210625},
-                                duration: {text: "1 μέρες 19 ώρες", value: 154937},
-                                status: "OK"
-                            }
-                        ]
+            
+            //FOR PRODUCTION
+            /*
+            fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?key=${API_KEY}&origins=${req.body.position}&mode=walking&destinations=${formattedStops[0]}&language=el&units=metric`)
+            .then(res => res.json())
+            .then(resul => {
+                console.log(resul);
+                resul.stopNames = formattedStops[1];
+                    let minStop = {
+                        duration: Infinity,
+                        distance: "",
+                        durationText: "",
+                        minStopName: "",
+                        coords: Infinity,
+                        address: ""
                     }
-                ]
-            }
-            // fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?key=${API_KEY}&origins=${req.body.position}&mode=walking&destinations=${formattedStops[0]}&language=el&units=metric`)
-            // .then(res => res.json())
-            // .then(resul => {
-            //     console.log(resul);
-            //     res.send(resul);
-            // })
+                    for (let i in resul.rows)
+                    {
+                        if (minStop.duration > resul.rows[i].elements[0].duration.value) 
+                        {
+                            minStop.duration = resul.rows[i].elements[0].duration.value;
+                            minStop.durationText = resul.rows[i].elements[0].duration.text;
+                            minStop.distance = resul.rows[i].elements[0].distance.text;
+                            minStop.minStopName = resul.stopNames[i];
+                            minStop.address = resul.destination_addresses[i];
+                            minStop.coords = formattedStops[0].split("|")[i];
+                        }
+                    }
+                res.send(minStop);
+            })
+            //*/
 
+            //FOR TESTING
+            //*
             fetch("https://restcountries.eu/rest/v2/name/greece?fullText=true")
             .then(res => res.text())
             .then(resul => {
-                console.log(resul);
+                
+            
+                example.stopNames =formattedStops[1];
+    
+                let minStop = {
+                    duration: Infinity,
+                    distance: "",
+                    durationText: "",
+                    minStopName: "",
+                    coords: Infinity,
+                    address: ""
+                }
+                for (let i in example.rows)
+                {
+                    if (minStop.duration > example.rows[i].elements[0].duration.value) 
+                    {
+                        minStop.duration = example.rows[i].elements[0].duration.value;
+                        minStop.durationText = example.rows[i].elements[0].duration.text;
+                        minStop.distance = example.rows[i].elements[0].distance.text;
+                        minStop.minStopName = example.stopNames[i];
+                        minStop.address = example.destination_addresses[i];
+                        minStop.coords = formattedStops[0].split("|")[i];
+                    }
+                }
+                res.send(minStop);
             })
-
+            //*/
             // example.stopsNames = formattedStops[1]
             // res.send(example);
             // console.log(formattedStops);
@@ -354,9 +477,16 @@ function fixBusStopsTimetable (time, days) {
 }
 
 /**
+ * A functions that returns a String of coordinations and an Array of bus stops.
+ * 
+ * - It changes the coordinations format based on https://developers.google.com/maps/documentation/distance-matrix/overview?hl=en_GB#request-parameters, so they can be accepted\
+ * by the API. 
+ * - It, also, stores all the names of the bus stops in an Array
+ * 
+ * @access private
  * 
  * @param {Array.<JSON>} results 
- * @returns {String}
+ * @returns {Array.<String, Array.<String>>} The String with the formatted Coordinations and the Array with the names of the bus stops.
  */
 function formatStops (results)
 {

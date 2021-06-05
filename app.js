@@ -6,6 +6,7 @@ const path = require("path");
 app.use("/css", express.static(__dirname+"/css"));
 app.use("/scripts", express.static(__dirname+"/scripts"));
 app.use("/media", express.static(__dirname+"/media"));
+app.use("/modules", express.static(__dirname+"/node_modules"));
 
 
 //Διαδρομές - Routse
