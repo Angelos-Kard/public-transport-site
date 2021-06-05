@@ -275,6 +275,11 @@ exports.specificRoutePage = (req, res) => {
 
 exports.mapData = (req, res) => {
     
+    model.getLineDetails(req.params.routeID, (err, results) => {
+
+        results = deleteSpaceCoords(results);
+        res.send(results);
+    })
 }
 
 /**
@@ -488,4 +493,21 @@ function formatStops (results)
         newAr.push(results[i].onomaStasis);
     }
     return [accum, newAr];
+}
+
+/**
+ * 
+ * @access private
+ * 
+ * @param {Array.<JSON>} results 
+ * @returns {Array.<JSON>}
+ */
+function deleteSpaceCoords (results) {
+
+    for (let i in results)
+    {
+        results[i].geografikiThesi = results[i].geografikiThesi.split(", ").join(",");
+    }
+
+    return results;
 }
