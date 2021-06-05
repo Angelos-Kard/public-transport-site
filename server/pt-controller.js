@@ -387,7 +387,7 @@ exports.findNearestStop = (req, res) => {
 
 }
 
-
+//================================= FUNCTIONS ======================================
 /**
  * A function that creates a JSON object, which contains an array of JSON objects.
  * 

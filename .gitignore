@@ -3,3 +3,4 @@ node_modules
 .env
 database/public_transport_site.sql
 initProject.sh
+Report.docx
