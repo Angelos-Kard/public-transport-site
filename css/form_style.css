@@ -1,11 +1,13 @@
 div.centerForm {
     display: flex;
     justify-content: center;
+    flex-flow: column;
 }
 
 form {
     width: 500px;
     margin: 1em;
+    align-self: center;
     display: flex;
     flex-flow: column;
 }
@@ -13,8 +15,6 @@ form {
 fieldset {
     margin: 1em;
     padding: 1em;
-    display: flex;
-    flex-flow: column;
     border-radius: 5px;
     box-shadow: 2px 2px 15px #134153;
 }
