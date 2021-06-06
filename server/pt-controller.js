@@ -285,6 +285,20 @@ exports.mapData = (req, res) => {
     })
 }
 
+exports.emailPage = (req, res) => {
+
+    res.render("email",{
+        layout:"main.hbs",
+        styles: [
+            {cssFile: "style_email.css"}
+        ],
+        scripts: [
+            {jsFile: "accordion.js"},
+            {jsFile: "redirect.js"}
+        ]
+    })
+}
+
 /**
  * Clicking on link with the format "*.html", it redirects the user to the corresponding page.
  * 
@@ -399,10 +413,12 @@ exports.findNearestStop = (req, res) => {
  */
  exports.sendEmail = (req, res, next) => {
 
+    let email = req.body.email;
     let sender = req.body.firstname;
     let title = req.body.title; 
     let comments = req.body.subject;
 
+    // you can login to the user below and check the email's.
     const transporter = nodemailer.createTransport({
         host: 'smtp.ethereal.email',
         port: 587,
@@ -413,51 +429,21 @@ exports.findNearestStop = (req, res) => {
     });
 
     transporter.sendMail({
-        from: sender,
+        from: email,
         to: 'Recipient <up105934@upnet.gr>',
         subject: title,
-        html: '<h1>'+title+'</h1>'+'<p>'+comments+'</p>'
-    });
+        html: '<h1>'+title+'</h1><article>'+comments+'<p> Email από:'+sender+'</p></article>'
+    }, (err, info) => {
+                if (err) {
+                    console.log('Error occurred. ' + err.message);
+                    return process.exit(1);
+                }
+        
+                console.log('Message sent: %s', info.messageId);
+                // Preview only available when sending through an Ethereal account
+                console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
 
-    // nodemailer.createTestAccount((err, account) => {
-    //     if (err) {
-    //         console.error('Failed to create a testing account. ' + err.message);
-    //         return process.exit(1);
-    //     }
-    
-    //     console.log('Credentials obtained, sending message...');
-    
-    //     // Create a SMTP transporter object
-    //     let transporter = nodemailer.createTransport({
-    //         host: account.smtp.host,
-    //         port: account.smtp.port,
-    //         secure: account.smtp.secure,
-    //         auth: {
-    //             user: account.user,
-    //             pass: account.pass
-    //         }
-    //     });
-    
-    //     // Message object
-    //     let message = {
-    //         from: sender,
-    //         to: 'Recipient <rtfshing@gmail.com>',
-    //         subject: title,
-    //         text: comments,
-    //         html: '<p><b>Το μήνυμα στάλθηκε με επιτυχία</p>'
-    //     };
-    
-    //     transporter.sendMail(message, (err, info) => {
-    //         if (err) {
-    //             console.log('Error occurred. ' + err.message);
-    //             return process.exit(1);
-    //         }
-    
-    //         console.log('Message sent: %s', info.messageId);
-    //         // Preview only available when sending through an Ethereal account
-    //         console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-    //     });
-    // });
+    });
 
     next();
 }

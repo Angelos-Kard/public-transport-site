@@ -36,6 +36,6 @@ router.get("/allStopsMap/:routeID", ptController.mapData)
 //=================================================================
 
 router.post("/nearest_stop", ptController.findNearestStop);
-router.post("/email", ptController.sendEmail, ptController.contactPage);
+router.post("/email", ptController.sendEmail, ptController.emailPage);
 
 module.exports = router;
