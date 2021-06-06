@@ -37,6 +37,8 @@ div.buttons a {
     text-align: center;
     color: #134153;
     border: 1px solid #fcfaf1;
+    box-shadow: 0 8px 10px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    border: 1px solid rgba(0,0,0,0.2);
 }
 
 div.buttons a:hover {
