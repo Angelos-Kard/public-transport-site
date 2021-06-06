@@ -9,10 +9,6 @@ body {
     color: #134153;
 }
 
-h1 {
-    border-bottom: 1px solid #134153
-}
-
 main {
     padding: 2em;
     line-height: 1.5;
@@ -129,6 +125,10 @@ hr.solid {
 
 @media only screen and (max-width: 600px) {
 
+    h1 {
+        border-bottom: 1px solid #134153
+    }
+
     main {
         font-size: small;
     }
@@ -156,6 +156,10 @@ hr.solid {
 /* Small devices (portrait tablets and large phones, 600px and up) */
 
 @media only screen and (min-width: 600px) {
+
+    h1 {
+        border-bottom: 1px solid #134153
+    }
     
     .welcome p {
         margin: 1em 1em;
@@ -174,6 +178,10 @@ hr.solid {
 }
 
 @media only screen and (min-width: 992px) {
+
+    h1 {
+        border-bottom: 1px solid #2e828b;
+    }
 
     .welcome p {
         margin: 1em 2em;
