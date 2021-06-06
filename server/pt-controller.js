@@ -11,8 +11,8 @@ if (process.env.NODE_ENV !== 'production') {
 const API_KEY = process.env.GOOGLE_KEY;
 
 const fetch = require("node-fetch");
-const { request } = require("../app");
-const { text } = require("express");
+//const { request } = require("../app");
+//const { text } = require("express");
 const nodemailer = require("nodemailer");
 
 const example = {
