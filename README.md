@@ -39,13 +39,14 @@ RECEIVER_EMAIL=...
 4. Ακολουθείτες τις οδηγίες που εμφανίζονται στο cmd παράθυρο.
 Το `initProject.bat` αρχείο θα κατεβάσει τα dependencies, θα δημιουργήσει το `.env` αρχείο (αν δεν υπάρχει) στη μορφή που περιγράφηκε προηγουμένως (Περίπτωση Α, Βήμα 5) και τέλος θα ξεκινήσει τον server. Σε περίπτωση που ξανατρέξετε το αρχείο ή τα ανωτέρω αρχεία έχουν εγκαταστηθεί ήδη, τότε το .bat αρχείο θα ξεκινήσει μόνο τον server.
 
-Σε περίπτωση πο θέλετε να δοκιμάσετε τον server με μία δική σας βάση δεδομένων, παρέχεται το αρχείο [public_transport_site_28_5.sql](./database/public_transport_site_28_5.sql), το οποίο περιέχει τους απαραίτητους πίνακες, καθώς και δεδομένα.
+Σε περίπτωση πο θέλετε να δοκιμάσετε τον server με μία δική σας βάση δεδομένων, παρέχεται το αρχείο [public_transportation.sql](./database/public_transportation.sql), το οποίο περιέχει τους απαραίτητους πίνακες, καθώς και δεδομένα.
 
 ## Dependencies
 - [express](https://github.com/expressjs/express)
 - [express-handlebars](https://github.com/express-handlebars/express-handlebars)
 - [mysql](https://github.com/mysqljs/mysql)
 - [node-fetch](https://github.com/node-fetch/node-fetch)
+- [nodemailer](https://github.com/nodemailer/nodemailer)
 - [dotenv](https://github.com/mysqljs/mysql) (devDependency)
 
 ## Αρχεία
