@@ -237,6 +237,7 @@ nav {
         border-color: #134153;
         border-width: 0;
         border-bottom-width: 1px;
+        z-index: 5;
     }
     
     
