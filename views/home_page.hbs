@@ -11,11 +11,14 @@
             <h2>Εύρεση Πλησιέστερης Στάσης</h2>
             <form>
                 <fieldset>
-                    <label for="line"> Επίλεξε γραμμή: </label>
+                    <label for="line"> Επιλέξτε γραμμή: </label>
                     <select id="line" name="line" placeholder="Γραμμή Λεωφορείου">
+                        <option value="" disabled selected>-- Επιλέξτε Γραμμή --</option>
                         {{#each allLines}}
+                            {{#groupLinesSelect this.id}}{{/groupLinesSelect}}
                             <option value="{{this.id}}">{{this.id}} -- {{this.onoma}}</option>
                         {{/each}}
+                        {{#restoreGroupLineVal}}{{/restoreGroupLineVal}}
                     </select>
                 </fieldset>
                 <input type="submit" value="Πλησιέστερη Στάση" class="submitbutton">

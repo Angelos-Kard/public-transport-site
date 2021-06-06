@@ -49,6 +49,20 @@ hbs.handlebars.registerHelper("checkZone", function(allStops, options) {
     else if (flagA) return "Α";
     else return "Β";
 })
-//exports.hbs = hbs;
+
+let currentGroupLine = "0";
+hbs.handlebars.registerHelper("groupLinesSelect", function (lineID, options) {
+    if (currentGroupLine != lineID.toString()[0])
+    {
+        currentGroupLine = lineID.toString()[0]
+        return `<option value="" disabled> - Γραμμές Νο. ${currentGroupLine} - </option>`
+    }
+})
+
+
+hbs.handlebars.registerHelper("restoreGroupLineVal", function(options) {
+    currentGroupLine = 0;
+})
+
 
 module.exports = app;
