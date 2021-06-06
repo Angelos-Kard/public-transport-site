@@ -1,20 +1,19 @@
 'use strict';
 
-
-
+//Require
 const model = require("./pt-model-sql");
+const nodemailer = require("nodemailer");
+const fetch = require("node-fetch");
 
+//dotenv is needed only in DEVELOPMENT
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config();
 }
 
 const API_KEY = process.env.GOOGLE_KEY;
 
-const fetch = require("node-fetch");
-//const { request } = require("../app");
-//const { text } = require("express");
-const nodemailer = require("nodemailer");
 
+//An example of an object that Distance Matrix API returns. It is used for DEVELOPMENT reasons
 const example = {
     destination_addresses: ["Λεωφ. Ιπποκράτους, Πάτρα 265 04, Ελλάδα", "Λεωφ. Ιπποκράτους, Πάτρα 265 04, Ελλάδα", "Σουλίου 5, Ρίο 265 04, Ελλάδα", "Λεωφ. Ιπποκράτους, Πάτρα 265 04, Ελλάδα", "Erasmou, Panepistimioupoli Patron 265 04, Ελλάδα"],
     origin_addresses: ["Μαραθώνιας Διαδρομής 47, Αχαρνές 136 72, Ελλάδα"],
@@ -67,6 +66,8 @@ const example = {
     ]
 }
 
+
+//========================================= Exported Functions ==================================
 /**
  * Renders site's home page.
  * 
@@ -108,6 +109,7 @@ exports.homePage = (req, res) => {
 
 /**
  * Renders site's news page, after retrieving articles from DB.
+ * 
  * @param {Request} [req] Request Object.
  * @param {Response} res Response Object.
  * 
@@ -138,8 +140,10 @@ exports.newsPage = (req, res) => {
     })
 }
 
+
 /**
  * Renders site's route page, after retrieving lines' names from DB.
+ * 
  * @param {Request} [req] Request Object.
  * @param {Response} res Response Object.
  * 
@@ -170,8 +174,10 @@ exports.routePage = (req, res) => {
     
 }
 
+
 /**
  * Renders site's tickets page, after tickets' prices from DB.
+ * 
  * @param {Request} [req] Request Object.
  * @param {Response} res Response Object.
  * 
@@ -229,6 +235,7 @@ exports.contactPage = (req, res) => {
     });
 }
 
+
 /**
  * Renders site's page for a specific line, after retrieving its route from DB.
  * 
@@ -243,7 +250,6 @@ exports.specificRoutePage = (req, res) => {
         if (results[0] == undefined) res.redirect("/route");
         else
         {
-
             const daysAndTime = fixBusStopsTimetable(results[0].ora, results[0].imera);
 
             const tempAr = formatStops(results)[0].split("|");
@@ -271,20 +277,17 @@ exports.specificRoutePage = (req, res) => {
                 ]
             });
         }
-        
-    })
-    
-}
-
-exports.mapData = (req, res) => {
-    
-    model.getLineDetails(req.params.routeID, (err, results) => {
-
-        results = deleteSpaceCoords(results);
-        res.send(results);
     })
 }
 
+
+/**
+ * A function that renders a page after you have sent an email
+ * 
+ * 
+ * @param {Request} req Request Object.
+ * @param {Response} res Response Object.
+ */
 exports.emailPage = (req, res) => {
 
     res.render("email",{
@@ -298,6 +301,7 @@ exports.emailPage = (req, res) => {
         ]
     })
 }
+
 
 /**
  * Clicking on link with the format "*.html", it redirects the user to the corresponding page.
@@ -313,7 +317,8 @@ exports.htmlRedirection = (req, res) => {
     res.redirect(newPath);
 }
 
-//================================== POST =================================
+
+//================================== Exported Functions For POST Requests =================================
 /**
  * A function which finds the nearest bus stop.
  * 
@@ -332,8 +337,6 @@ exports.findNearestStop = (req, res) => {
             const formattedStops = formatStops(result);
 
             const chunksOfResults = splitArray25(result, formattedStops[0], formattedStops[1]);
-
-            //res.send(chunksOfResults);
 
             let minStop = {
                 duration: Infinity,
@@ -404,16 +407,28 @@ exports.findNearestStop = (req, res) => {
                 }
                 res.send(minStop);
             })
-            //*/
-            // example.stopsNames = formattedStops[1]
-            // res.send(example);
-            // console.log(formattedStops);
         }
-
-        
     })
-
 }
+
+/**
+ * A functions that sends the coordinates of a line's bus stops to the client.
+ * 
+ * A function for the specificRoute page. It is called from root/scripts/createMap.js
+ * 
+ * @param {Request} req Request Object.
+ * @param {Response} res Response Object.
+ */
+ exports.mapData = (req, res) => {
+    
+    model.getLineDetails(req.params.routeID, (err, results) => {
+
+        results = deleteSpaceCoords(results);
+        res.send(results);
+    })
+}
+
+
 /**
  * A function which sends an email to me.
  * 
@@ -439,29 +454,35 @@ exports.findNearestStop = (req, res) => {
         }
     });
 
-    transporter.sendMail({
-        from: email,
-        to: `Recipient <${process.env.RECEIVER_EMAIL}>`,
-        subject: title,
-        html: '<h1>'+title+'</h1><article>'+comments+'<p> Email από:'+sender+'</p></article>'
-    }, (err, info) => {
-                if (err) {
-                    console.log('Error occurred. ' + err.message);
-                    return process.exit(1);
-                }
-        
-                console.log('Message sent: %s', info.messageId);
-                // Preview only available when sending through an Ethereal account
-                console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-
-    });
+    transporter.sendMail(
+        {
+            from: email,
+            to: `Recipient <${process.env.RECEIVER_EMAIL}>`,
+            subject: title,
+            html: '<h1>'+title+'</h1><article>'+comments+'<p> Email από:'+sender+'</p></article>'
+        }, 
+        (err, info) => 
+        {
+            if (err) {
+                console.log('Error occurred. ' + err.message);
+                return process.exit(1);
+            }
+            
+            //Details about the sent email 
+            //console.log('Message sent: %s', info.messageId); //FOR  DEVELOPMENT
+            // Preview only available when sending through an Ethereal account
+            //console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info)); //FOR  DEVELOPMENT
+        }
+    );
 
     next();
 }
 
-//================================= FUNCTIONS ======================================
+//==================================== FUNCTIONS ========================================
 /**
  * A function that creates a JSON object, which contains an array of JSON objects.
+ * 
+ * It used by multiple functions, even though it is quite unnecessary.
  * 
  * @access private
  * 
@@ -488,6 +509,7 @@ function rowpacketToJSON (arg, rows) {
  * - Input: An array of JSON objects, where the dates are stored under the key "imerominia" and they are Date objects\.
  * - Output: An array of JSON objects, where the dates are stored under the key "imerominia" and they are String objects\. 
  * Date's format is "dd/MM/YYYY".
+ * - It is used by newsPage and homePage functions.
  * 
  * @access private
  * 
@@ -508,6 +530,8 @@ function fixDates (results) {
 
 /**
  * A function that fixes the format of days and hours of the routes in order to be handled by hbs. 
+ * 
+ * It is used by specificRoutePage function.
  * 
  * @access private
  * 
@@ -541,12 +565,14 @@ function fixBusStopsTimetable (time, days) {
 
 }
 
+
 /**
  * A functions that returns a String of coordinations and an Array of bus stops.
  * 
  * - It changes the coordinations format based on https://developers.google.com/maps/documentation/distance-matrix/overview?hl=en_GB#request-parameters, so they can be accepted\
  * by the API. 
  * - It, also, stores all the names of the bus stops in an Array
+ * - It is used by specificRoutePage and findNearestStop functions
  * 
  * @access private
  * 
@@ -569,7 +595,10 @@ function formatStops (results)
 }
 
 /**
- * A function that deletes the space between longitude and langitude
+ * A function that deletes the space between longitude and langitude.
+ * 
+ * - It is important for the Google APIs.
+ * - It is used by mapData function.
  * 
  * @access private
  * 
@@ -587,6 +616,20 @@ function deleteSpaceCoords (results) {
 
 }
 
+
+/**
+ * A function that splits the data sent by the API, the coords and the names into groups of 25.
+ * 
+ * - This function was created in order to avoid the restriction of Google's API (Distance Matrix API), which accepts only 25 destinations.
+ * - It is used by findNearestStop function.
+ * 
+ * @access private
+ * 
+ * @param {JSON} result The JSON object that the Distance Matrix API returns.
+ * @param {String} coords A string with all the coordinates of all the bus stops
+ * @param {Array.<String>} names The names of all the bus stops
+ * @returns {Array.<JSON>} An array of JSON obejct\. Each object has the data of 25 bus stops
+ */
 function splitArray25 (result, coords, names)
 {
     const allChunks = [];
@@ -613,7 +656,14 @@ function splitArray25 (result, coords, names)
     return allChunks;
 }
 
-
+/**
+ * A function that finds the nearest (based on arrival time) bus stop of a specific line
+ * 
+ * @param {JSON} APIresult The JSON object that the Distance Matrix API returns
+ * @param {JSON} minStop A JSON object which has all the necessary data of the nearest bus stop
+ * @param {String} stopsCoords A String of the coordinates of all the bus stops in the format that Google suggests 
+ * @returns The minStop object
+ */
 function findMinTime (APIresult, minStop, stopsCoords)
 {
     for (let i in APIresult.rows)

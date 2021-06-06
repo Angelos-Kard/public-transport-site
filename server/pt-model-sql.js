@@ -25,6 +25,8 @@ function connectToDB (){
     });
 }
 
+//============================================ exported Functions ==============================================================
+
 /**
  * A callback, whose inputs are an error message and the retrieved data.
  * 
@@ -104,6 +106,11 @@ exports.getArticles = (callback) => {
     });
 }
 
+/**
+ * A function that retrieves the articles and lines from the DB
+ * 
+ * @param {modelCallback} callback The callback that handles the error message and the retrieved data.
+ */
 exports.getArticlesAndLines = (callback) => {
     con = connectToDB();
 
@@ -118,6 +125,7 @@ exports.getArticlesAndLines = (callback) => {
         });
     });
 }
+
 
 /**
  * A function that retrieves a line's route.

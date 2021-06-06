@@ -3,6 +3,7 @@ const app = express()
 const exphbs = require('express-handlebars');
 const path = require("path");
 
+//Creating Static Files
 app.use("/css", express.static(__dirname+"/css"));
 app.use("/scripts", express.static(__dirname+"/scripts"));
 app.use("/media", express.static(__dirname+"/media"));
@@ -13,10 +14,7 @@ app.use("/modules", express.static(__dirname+"/node_modules"));
 const routes = require('./server/pt-routes');
 app.use('/', routes);
 
-
-//Χρήση των views - Using 'views'
-//Σημ.: η engine πρέπει να έχει ίδιο όνομα με το extname, αλλιώς δεν θα αναγνωριστεί το extname (αλλιώς τα αρχεία θα πρέπει να τελειώνουν με .handlebars)
-//Note: engine name must be the same as extname (hbs) otherwise the handlebars template engine will look for files ending in '.handlebars'
+//Handlebars Engine and folders path
 app.engine('hbs', exphbs({
     extname: '.hbs',
     layoutsDir: __dirname+"/views/layouts",
@@ -29,13 +27,14 @@ app.set("views", __dirname + "/views")
 
 const hbs = exphbs.create({});
 
-//Helpers
+//Custom Helpers
+//It checks if a ticket is "meiomeno", "kanoniko", "epivarimeno"
+//Generally, it checks if two values are equal
 hbs.handlebars.registerHelper("checkTicketType", function(varVal, fixedVal, options) {
-    //console.log(arg1);
     return (fixedVal==varVal) ? options.fn(this) : options.inverse(this); 
 }); 
 
-
+//It checks if a route has stops in zone A or zone B or Both
 hbs.handlebars.registerHelper("checkZone", function(allStops, options) {
     let flagA = false;
     let flagB = false;
@@ -50,7 +49,10 @@ hbs.handlebars.registerHelper("checkZone", function(allStops, options) {
     else return "Β";
 })
 
-let currentGroupLine = "0";
+
+let currentGroupLine = "0"; //Usefull for the next 2 helpers
+
+//It groups the lines based of the first digit of their id
 hbs.handlebars.registerHelper("groupLinesSelect", function (lineID, options) {
     if (currentGroupLine != lineID.toString()[0])
     {
@@ -59,6 +61,7 @@ hbs.handlebars.registerHelper("groupLinesSelect", function (lineID, options) {
     }
 })
 
+//It groups the lines based of the first digit of their id
 hbs.handlebars.registerHelper("groupLinesRoute", function (lineID, options) {
     if (currentGroupLine != lineID.toString()[0])
     {
@@ -71,7 +74,7 @@ hbs.handlebars.registerHelper("groupLinesRoute", function (lineID, options) {
     }
 })
 
-
+//It restores the currentGroupLine var back to its original value
 hbs.handlebars.registerHelper("restoreGroupLineVal", function(options) {
     currentGroupLine = 0;
 })
