@@ -34,7 +34,7 @@ body {
 
 .main-box:hover {
     box-shadow: 1px 2px 10px #8ad8ed;
-    text-decoration: underline;
+    /* text-decoration: underline; */
 }
 
 #backLink {
@@ -110,4 +110,16 @@ hr.solid {
 .map {
     height: 500px;
     width: 100%;
+    /* z-index: -5; */
+}
+
+.symbol-legend {
+    margin-top: 2em;
+    text-align: left;
+    font-size: 20px;
+}
+
+
+.symbol-legend ul {
+    margin-left: -1em;
 }

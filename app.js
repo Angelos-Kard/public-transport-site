@@ -55,7 +55,19 @@ hbs.handlebars.registerHelper("groupLinesSelect", function (lineID, options) {
     if (currentGroupLine != lineID.toString()[0])
     {
         currentGroupLine = lineID.toString()[0]
-        return `<option value="" disabled> - Γραμμές Νο. ${currentGroupLine} - </option>`
+        return `<option value="" disabled> -- Γραμμές Νο. ${currentGroupLine} -- </option>`
+    }
+})
+
+hbs.handlebars.registerHelper("groupLinesRoute", function (lineID, options) {
+    if (currentGroupLine != lineID.toString()[0])
+    {
+        currentGroupLine = lineID.toString()[0]
+
+        if (currentGroupLine == "1") return `<li><strong>Γραμμές Νο. ${currentGroupLine}</strong></li><hr class="solid">`
+        
+        return `<br><li><strong>Γραμμές Νο. ${currentGroupLine}</strong></li><hr class="solid">`
+        
     }
 })
 

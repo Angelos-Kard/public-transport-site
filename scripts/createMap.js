@@ -36,11 +36,13 @@ window.initMap = function() {
                 map: map,
                 label: response[i].seira.toString(),
                 title: response[i].onomaStasis,
-                //icon: "/media/icons/bus_stop_40.png"
+                //Bus Stop icon by https://mapicons.mapsmarker.com/markers/transportation/road-transportation/bus-stop
+                icon: response[i].zoni == "A" ? "/media/icons/busstop_A.png" : "/media/icons/busstop_B.png"
             });
             
             
-            const contentText = `<a href="https://www.google.com/maps/search/?api=1&query=${response[i].geografikiThesi}" target="_blank">Στάση: ${response[i].onomaStasis}</a>`
+            const contentText = `<a href="https://www.google.com/maps/search/?api=1&query=${response[i].geografikiThesi}" target="_blank">Στάση: ${response[i].onomaStasis}</a>\
+            <br>Ζώνη ${response[i].zoni}`
 
             makeInfoWindowEvent(map, infowindow, contentText, marker);
 

@@ -10,6 +10,7 @@
             <h3>Γραμμές</h3>
             <ul id="lines" class="lines">
                 {{#each lines}}
+                    {{#groupLinesRoute this.id}}{{/groupLinesRoute}}
                     <li><a href="/route/{{this.id}}">{{this.id}} - {{this.onoma}}</a></li>
                 {{/each}}
             </ul>

@@ -52,6 +52,7 @@ h2 {
 }
 
 .lines li {
+    
     margin: .5em;
     padding: 2px;
     font-size: 2 rem;
@@ -71,19 +72,24 @@ h2 {
     color: var(--subtitle-color);
 }
 
+hr.solid {
+    border-top: 2px solid var(--subtitle-color);
+}
+
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     
     .dromologia h3 {
         align-self: center;
         padding: 0 7em;
-        border-left: .5em solid #8ad8ed;
+        border-left: .5em solid var(--subtitle-color);
     }
 
     .routeWelcome {
         margin: 1em;
         padding: 1em 2em;
-        border: 5px solid #8ad8ed;
+        border: 5px solid var(--subtitle-color);
     }
 
 }
@@ -94,7 +100,7 @@ h2 {
     .routeWelcome {
         margin: 2em;
         padding: 2em 4em;
-        border: .5em solid #8ad8ed;
+        border: .5em solid var(--subtitle-color);
     }
 
 }
