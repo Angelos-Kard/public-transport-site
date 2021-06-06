@@ -29,15 +29,20 @@ window.initMap = function() {
             const latLng = new google.maps.LatLng(coords[0], coords[1]);
             //latlngbounds.extend(latLng);
 
+            //icon selection
+            let theIcon;
+            if ( i == 0 ) response[i].zoni == "A" ? theIcon = "/media/icons/busstop_startA.png" : theIcon = "/media/icons/busstop_startB.png";
+            else if ( i == response.length-1 ) response[i].zoni == "A" ? theIcon = "/media/icons/busstop_endA.png" : theIcon = "/media/icons/busstop_endB.png";
+            else response[i].zoni == "A" ? theIcon = "/media/icons/busstop_A.png" : theIcon = "/media/icons/busstop_B.png";
 
 
             const marker = new google.maps.Marker({
                 position: latLng,
                 map: map,
-                label: response[i].seira.toString(),
+                //label: response[i].seira.toString(),
                 title: response[i].onomaStasis,
                 //Bus Stop icon by https://mapicons.mapsmarker.com/markers/transportation/road-transportation/bus-stop
-                icon: response[i].zoni == "A" ? "/media/icons/busstop_A.png" : "/media/icons/busstop_B.png"
+                icon: theIcon
             });
             
             
