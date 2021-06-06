@@ -1,3 +1,5 @@
+//DEPRECATED
+
 const news = document.getElementById("news");
 
 for( let i = 0 ; i < newsList.length ; i++ ) {

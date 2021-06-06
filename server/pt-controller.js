@@ -98,9 +98,8 @@ exports.homePage = (req, res) => {
                 {cssFile: "variables.css"}
             ],
             scripts: [
-                //{jsFile: "news.js"},
                 {jsFile: "newsHome.js"},
-                {jsFile: "form_send_rec.js"}
+                {jsFile: "nearestStop.js"}
             ]
         });
     })
@@ -127,12 +126,10 @@ exports.newsPage = (req, res) => {
             layout: "main.hbs", 
             title:"Ανακοινώσεις",
             styles: [
-                {cssFile: "news_style.css"},
+                {cssFile: "style_news.css"},
                 {cssFile: "variables.css"}
             ],
             scripts: [
-                //{jsFile: "news.js"},
-                //{jsFile: "newsArticle.js"},
                 {jsFile: "redirect.js"}
             ],
             news: results
@@ -162,7 +159,7 @@ exports.routePage = (req, res) => {
             title:"Δρομολόγια",
             styles: [
                 {cssFile: "variables.css"},
-                {cssFile: "route_style.css"}
+                {cssFile: "style_route.css"}
             ],
             scripts: [
                 //{jsFile: "lines.js"},
@@ -198,10 +195,10 @@ exports.ticketsPage = (req, res) => {
         layout: "main.hbs", 
         title:"Εισιτήρια",
         styles: [
-            {cssFile: "style_tickets.css"}
+            {cssFile: "style_tickets.css"},
+            {cssFile: "variables.css"}
         ],
         scripts: [
-            {jsFile: "tickets.js"},
             {jsFile: "redirect.js"}
         ],
         tickets: rows.tickets,
@@ -226,6 +223,7 @@ exports.contactPage = (req, res) => {
         layout: "main.hbs", 
         title:"Εισιτήρια",
         styles: [
+            {cssFile: "variables.css"},
             {cssFile: "style_contact.css"},
             {cssFile: "form_style.css"}
         ],
@@ -268,7 +266,7 @@ exports.specificRoutePage = (req, res) => {
                 day_time: daysAndTime, 
                 styles: [
                     {cssFile: "variables.css"},
-                    {cssFile: "routeSpecific_style.css"}
+                    {cssFile: "style_routeSpecific.css"}
                 ],
                 scripts: [
                     {jsFile: "createMap.js"},
@@ -293,6 +291,7 @@ exports.emailPage = (req, res) => {
     res.render("email",{
         layout:"main.hbs",
         styles: [
+            {cssFile: "variables.css"},
             {cssFile: "style_email.css"}
         ],
         scripts: [

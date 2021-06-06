@@ -1,3 +1,6 @@
+/**
+ * A function that retrieves the user's position (coordinates)
+ */
 function bringData () {
     
 
@@ -12,6 +15,14 @@ function bringData () {
     }
 }
 
+/**
+ * A function that finds the nearest bus stop.
+ * 
+ * The function sends the user's position to the server and it receives the nearest bus stop.
+ * 
+ * 
+ * @param {String} position User's position (coordinates)
+ */
 function sendPosition (position) {
 
     const theValue = document.querySelector("#line").value;
@@ -26,7 +37,6 @@ function sendPosition (position) {
         )
         .then((response) => response.json())
         .then((response) => {
-            //console.log(response);
 
             const ans = document.querySelector("#min-stop");
 
@@ -45,9 +55,8 @@ function sendPosition (position) {
 
 
 let form = document.querySelector("form");
-function handleForm(event) { event.preventDefault(); } 
+function handleForm(event) { event.preventDefault(); } //prevents page reload on click 
 form.addEventListener('submit', handleForm);
 
 const theBtn = document.querySelector(".submitbutton");
-
 theBtn.addEventListener("click", bringData);

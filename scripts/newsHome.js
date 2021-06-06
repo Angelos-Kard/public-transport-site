@@ -1,3 +1,4 @@
+//Make the articles in the home page clickable
 const newsHome = document.querySelectorAll(".articleNews");
 
 for(let nodeI of newsHome) {

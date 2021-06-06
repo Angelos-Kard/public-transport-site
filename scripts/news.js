@@ -1,5 +1,6 @@
-// news = [ ["date","title","article","id"], ... ]
+//DEPRECATED
 
+// news = [ ["date","title","article","id"], ... ]
 const newsList = [
     [
         "16/10/2020",

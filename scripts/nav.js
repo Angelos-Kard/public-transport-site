@@ -1,9 +1,9 @@
 // https://codepen.io/lehollandaisvolant/pen/ryrrGx
 
-const navbar = document.querySelector("nav");
+const navbar = document.querySelector("nav"); //the main menu
 let scrollPosition = 0;
 
-const scrollToTop = document.createElement("button");
+const scrollToTop = document.createElement("button"); //a button to scroll to top
 scrollToTop.className = "topButton";
 scrollToTop.textContent = "↑";
 scrollToTop.addEventListener("click", function (){
@@ -11,9 +11,11 @@ scrollToTop.addEventListener("click", function (){
 });
 document.querySelector('main').appendChild(scrollToTop);
 
-const hamburger = document.querySelector(".hamburger");
+const hamburger = document.querySelector(".hamburger"); //the hamburger menu (mobile only)
 const togglerItem = document.querySelector(".toggler");
 
+//Create a sticky menu (pc)
+//Change the dimensions of the hamburger menu button (mobile)
 window.addEventListener("scroll", function () {
 
     if( window.pageYOffset >= navbar.offsetTop ) 
