@@ -23,6 +23,7 @@ h2 {
 main p {
     margin: 2em;
     padding: 2em;
+    border-left: .5em solid #8ad8ed;
 }
 
 div.buttons {
