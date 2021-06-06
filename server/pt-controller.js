@@ -11,6 +11,9 @@ if (process.env.NODE_ENV !== 'production') {
 const API_KEY = process.env.GOOGLE_KEY;
 
 const fetch = require("node-fetch");
+const { request } = require("../app");
+const { text } = require("express");
+const nodemailer = require("nodemailer");
 
 const example = {
     destination_addresses: ["Λεωφ. Ιπποκράτους, Πάτρα 265 04, Ελλάδα", "Λεωφ. Ιπποκράτους, Πάτρα 265 04, Ελλάδα", "Σουλίου 5, Ρίο 265 04, Ελλάδα", "Λεωφ. Ιπποκράτους, Πάτρα 265 04, Ελλάδα", "Erasmou, Panepistimioupoli Patron 265 04, Ελλάδα"],
@@ -386,6 +389,78 @@ exports.findNearestStop = (req, res) => {
     })
 
 }
+/**
+ * A function which sends an email to me.
+ * 
+ * It gets the data from a form in contact page.
+ * 
+ * @param {Request} req A Request object, which contains the name,title and the subject of the email.
+ * @param {Response} res A Response object
+ */
+ exports.sendEmail = (req, res, next) => {
+
+    let sender = req.body.firstname;
+    let title = req.body.title; 
+    let comments = req.body.subject;
+
+    const transporter = nodemailer.createTransport({
+        host: 'smtp.ethereal.email',
+        port: 587,
+        auth: {
+            user: 'lorenz2@ethereal.email',
+            pass: 'qUPM5bUhNaJ9fSEXKW'
+        }
+    });
+
+    transporter.sendMail({
+        from: sender,
+        to: 'Recipient <up105934@upnet.gr>',
+        subject: title,
+        html: '<h1>'+title+'</h1>'+'<p>'+comments+'</p>'
+    });
+
+    // nodemailer.createTestAccount((err, account) => {
+    //     if (err) {
+    //         console.error('Failed to create a testing account. ' + err.message);
+    //         return process.exit(1);
+    //     }
+    
+    //     console.log('Credentials obtained, sending message...');
+    
+    //     // Create a SMTP transporter object
+    //     let transporter = nodemailer.createTransport({
+    //         host: account.smtp.host,
+    //         port: account.smtp.port,
+    //         secure: account.smtp.secure,
+    //         auth: {
+    //             user: account.user,
+    //             pass: account.pass
+    //         }
+    //     });
+    
+    //     // Message object
+    //     let message = {
+    //         from: sender,
+    //         to: 'Recipient <rtfshing@gmail.com>',
+    //         subject: title,
+    //         text: comments,
+    //         html: '<p><b>Το μήνυμα στάλθηκε με επιτυχία</p>'
+    //     };
+    
+    //     transporter.sendMail(message, (err, info) => {
+    //         if (err) {
+    //             console.log('Error occurred. ' + err.message);
+    //             return process.exit(1);
+    //         }
+    
+    //         console.log('Message sent: %s', info.messageId);
+    //         // Preview only available when sending through an Ethereal account
+    //         console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+    //     });
+    // });
+
+    next();
+}
 
 //================================= FUNCTIONS ======================================
 /**
@@ -493,6 +568,7 @@ function formatStops (results)
         newAr.push(results[i].onomaStasis);
     }
     return [accum, newAr];
+
 }
 
 /**
@@ -511,4 +587,5 @@ function deleteSpaceCoords (results) {
     }
 
     return results;
+
 }

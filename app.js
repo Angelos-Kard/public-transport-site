@@ -9,7 +9,7 @@ app.use("/media", express.static(__dirname+"/media"));
 app.use("/modules", express.static(__dirname+"/node_modules"));
 
 
-//Διαδρομές - Routse
+//Διαδρομές - Routes
 const routes = require('./server/pt-routes');
 app.use('/', routes);
 

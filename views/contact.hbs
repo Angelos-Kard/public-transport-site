@@ -39,15 +39,16 @@
 
         <div class="main-box div-form">
             <h2>Φόρμα Επικοινωνίας</h2>
-            <form id="contact-form" action="">
+            <form id="contact-form" action="/email" method="POST">
                 <label for="fname">Όνομα</label>
-                <input type="text" id="fname" name="firstname" placeholder="Όνομα...">
+                <input type="text" id="fname" name="firstname" placeholder="Όνομα ή στοιχεία επικοινωνίας.">
 
-                <label for="lname">Επώνυμο</label>
-                <input type="text" id="lname" name="lastname" placeholder="Επώνυμο...">
+                <label for="theme">Τίτλος</label>
+                <input type="text" id="theme" name="title" placeholder="Το θέμα του email.">
                 
                 <label for="subject">Μήνυμα</label>
-                <textarea id="subject" name="subject" placeholder="Το Μήνυμά Σας..." style="height:170px"></textarea>
+                <textarea id="subject" name="subject" placeholder="Το περιεχόμενό του μηνύματος."></textarea>
+                
                 <input class = "submitbutton" type="submit" value="Υποβολή">
               </form>
         </div>
