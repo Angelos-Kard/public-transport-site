@@ -151,6 +151,10 @@ hr.solid {
         max-width: 90%;
     }
 
+    .newsInfos ol {
+        display: block;
+    }
+
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
