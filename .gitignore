@@ -1,7 +1,3 @@
 db_cred.txt
 node_modules
 .env
-database/public_transport_site.sql
-initProject.sh
-Report.docx
-Report2.odt
