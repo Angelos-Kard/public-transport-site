@@ -12,6 +12,7 @@ h1 {
     color: #fcfaf1;
     padding: 50px 25px;
     margin: 0 auto;
+    border-bottom: 1px solid #134153;
 }
 
 button.topButton {

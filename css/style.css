@@ -9,8 +9,13 @@ body {
     color: #134153;
 }
 
+h1 {
+    border-bottom: 1px solid #134153
+}
+
 main {
     padding: 2em;
+    line-height: 1.5;
 }
 
 h2 {
@@ -121,15 +126,26 @@ hr.solid {
 
 @media only screen and (max-width: 600px) {
 
+    main {
+        font-size: small;
+    }
+
     .welcome {
         margin: 10px;
         padding: 10px;
-        border-left: 4px solid #8ad8ed;
-        border-right: 4px solid #8ad8ed;
+    }
+
+    .welcome p {
+        border-left: 3px solid #8ad8ed;
+        border-right: 3px solid #8ad8ed;
     }
     
-    #min-stop {
-        width: 310px;
+    form, #min-stop {
+        width: 300px;
+    }
+
+    .bestpath {
+        max-width: 90%;
     }
 
 }
@@ -149,6 +165,9 @@ hr.solid {
         width: 410px;
     }
 
+    .bestpath {
+        max-width: 500px;
+    }
 }
 
 @media only screen and (min-width: 992px) {
