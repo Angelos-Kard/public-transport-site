@@ -235,7 +235,8 @@ nav {
         background-color: #2e828b;
         border-style: solid;
         border-color: #134153;
-        border-width: 1px 0px;
+        border-width: 0;
+        border-bottom-width: 1px;
     }
     
     
