@@ -330,35 +330,46 @@ exports.findNearestStop = (req, res) => {
         if (result.length != 0)
         {
             const formattedStops = formatStops(result);
+
+            const chunksOfResults = splitArray25(result, formattedStops[0], formattedStops[1]);
+
+            //res.send(chunksOfResults);
+
+            let minStop = {
+                duration: Infinity,
+                distance: "",
+                durationText: "",
+                minStopName: "",
+                coords: Infinity,
+                address: ""
+            }
             
             //FOR PRODUCTION
             /*
-            fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?key=${API_KEY}&origins=${req.body.position}&mode=walking&destinations=${formattedStops[0]}&language=el&units=metric`)
+            fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?key=${API_KEY}&origins=${req.body.position}&mode=walking&destinations=${chunksOfResults[0].Coords}&language=el&units=metric`)
             .then(res => res.json())
             .then(resul => {
+                
+                resul.stopNames = chunksOfResults[0].Names;
                 console.log(resul);
-                resul.stopNames = formattedStops[1];
-                    let minStop = {
-                        duration: Infinity,
-                        distance: "",
-                        durationText: "",
-                        minStopName: "",
-                        coords: Infinity,
-                        address: ""
-                    }
-                    for (let i in resul.rows)
-                    {
-                        if (minStop.duration > resul.rows[i].elements[0].duration.value) 
-                        {
-                            minStop.duration = resul.rows[i].elements[0].duration.value;
-                            minStop.durationText = resul.rows[i].elements[0].duration.text;
-                            minStop.distance = resul.rows[i].elements[0].distance.text;
-                            minStop.minStopName = resul.stopNames[i];
-                            minStop.address = resul.destination_addresses[i];
-                            minStop.coords = formattedStops[0].split("|")[i];
-                        }
-                    }
-                res.send(minStop);
+                minStop = findMinTime(resul, minStop, chunksOfResults[0].Coords)
+
+                if (chunksOfResults.length == 2)
+                {
+                    fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?key=${API_KEY}&origins=${req.body.position}&mode=walking&destinations=${chunksOfResults[1].Coords}&language=el&units=metric`)
+                    .then(res => res.json())
+                    .then(resul2 => {
+                        console.log(resul2);
+                        resul2.stopNames = chunksOfResults[1].Names;
+                
+                        minStop = findMinTime(resul2, minStop, chunksOfResults[1].Coords)
+
+                        res.send(minStop);
+                    })
+                }
+                else {
+                    res.send(minStop);
+                }
             })
             //*/
 
@@ -574,4 +585,49 @@ function deleteSpaceCoords (results) {
 
     return results;
 
+}
+
+function splitArray25 (result, coords, names)
+{
+    const allChunks = [];
+
+    const maxRep = result.length;
+    
+    const chunkSize = 25;
+
+    for (let i = 0; i < maxRep; i+=chunkSize)
+    {
+        const tempJSONObejcts = result.slice(i, i+chunkSize);
+        const tempCoords = coords.split("|").slice(i, i+chunkSize).join("|");
+        const tempNames = names.slice(i, i+chunkSize);
+
+        allChunks.push(
+            {
+               JSONobjects: tempJSONObejcts,
+               Coords: tempCoords,
+               Names: tempNames 
+            }
+        )
+    }
+
+    return allChunks;
+}
+
+
+function findMinTime (APIresult, minStop, stopsCoords)
+{
+    for (let i in APIresult.rows)
+    {
+        if (minStop.duration > APIresult.rows[i].elements[0].duration.value) 
+        {
+            minStop.duration = APIresult.rows[i].elements[0].duration.value;
+            minStop.durationText = APIresult.rows[i].elements[0].duration.text;
+            minStop.distance = APIresult.rows[i].elements[0].distance.text;
+            minStop.minStopName = APIresult.stopNames[i];
+            minStop.address = APIresult.destination_addresses[i];
+            minStop.coords = stopsCoords.split("|")[i];
+        }
+    }
+
+    return minStop;
 }
