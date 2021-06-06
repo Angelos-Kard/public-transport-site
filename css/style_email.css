@@ -10,26 +10,31 @@ body {
 }
 
 h2 {
-    margin: 0;
-    padding: 1em;
     background-color: #8ad8ed;
+    padding: 1em;
+    margin-top: 0;
+    margin-bottom: 3em;
+    border-color: #134153;
+    border-style: solid;
+    border-width: 0px 0px 1px 1px;
+    box-shadow: 1px 1px 10px #134153;
 }
 
 main p {
-    margin: 1em;
-    padding: 1em;
+    margin: 2em;
+    padding: 2em;
 }
 
 div.buttons {
-    display: flex;
-    align-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
 }
 
 div.buttons a {
-    display: inline-block;
     margin: 1em;
     padding: 1em;
     text-decoration: none;
+    text-align: center;
     color: #134153;
     border: 1px solid #fcfaf1;
 }
