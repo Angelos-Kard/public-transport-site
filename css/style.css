@@ -29,9 +29,13 @@ main div {
     box-shadow: 1px 2px 10px #134153;
 }
 
+.welcome p {
+    border-left: .5em solid #8ad8ed;
+    border-right: .5em solid #8ad8ed;
+}
+
 #min-stop {
     display: none;
-    width: 500px;
     cursor: pointer;
     text-align: center;
     margin: 2.2em;
@@ -120,6 +124,19 @@ hr.solid {
 }
 
 
+@media only screen and (max-width: 600px) {
+
+    .welcome {
+        margin: 0;
+        padding: .5em;
+    }
+    
+    #min-stop {
+        width: 310px;
+    }
+
+}
+
 /* Small devices (portrait tablets and large phones, 600px and up) */
 
 @media only screen and (min-width: 600px) {
@@ -127,6 +144,10 @@ hr.solid {
     .welcome p {
         margin: 1em 1em;
         padding: 2em 5em;
+    }
+
+    #min-stop {
+        width: 410px;
     }
 
 }
@@ -146,6 +167,10 @@ hr.solid {
     #latestNews h2 {
         grid-row: 1/2;
         grid-column: 1/4;
+    }
+
+    #min-stop {
+        width: 810px;
     }
 
 }

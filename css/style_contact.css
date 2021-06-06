@@ -49,8 +49,6 @@ form {
 }
 
 .main-box {
-    margin: 1em;
-    padding: 1em;
     border-width: 1px;
     border-style: solid;
     border-color: #134153;
@@ -62,7 +60,8 @@ form {
     display: none;
 }
 
-ul {
+ul.left, ul.right {
+    align-self: center;
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -70,7 +69,6 @@ ul {
 
 .left li {
     padding: 8px;
-    
     height: 54px;
     padding-left: 60px;
     padding-top: 2px;
@@ -121,15 +119,8 @@ ul {
 
 @media only screen and (min-width: 992px) {
     
-
-    
-    /* .main-title h3 {
-        font-size: 16px;
-    } */
-    
-    
     .main-box {
-        margin: 1em;
+        margin: 2em;
         padding: 1em;
         border-width: 1px;
         border-style: solid;
@@ -142,8 +133,6 @@ ul {
         display: grid;
         grid-template: 1fr / 1fr 1fr;
     }
-    
-    
     
     .left {
         font-size: 18px;
@@ -165,20 +154,12 @@ ul {
     #gmap_canvas {
         height: 400px;
         width: 100%;
-        
     }
-    
-    
-    
-    
-    
     
     .submitbutton{
         width: 30%;
         height: 8%;
         font-size: 16px;
     }
-    
-    
+       
 }
-

@@ -61,12 +61,11 @@ h3:hover {
 }
 
 .article a {
-    text-decoration: none;
     color: var(--link-color);
 }
 
 .article a:hover {
-    text-decoration: underline;
+    text-decoration: none;
     color: var(--link-color-hover);
 }
 

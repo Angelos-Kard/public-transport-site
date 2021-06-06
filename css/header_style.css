@@ -16,11 +16,7 @@ h1 {
 
 button.topButton {
     display: none;
-    width: 2em;
-    height: 2em;
     position: fixed;
-    bottom: 1.5em;
-    right: .5em;
     border: 1px solid #8ad8ed;
     background-color: #2e828b;
     color: #fcfaf1;
@@ -196,19 +192,39 @@ nav {
 }
 
 /* Extra small devices (phones, 600px and down) */
-/*@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) {
     
+    button.topButton {
+        width: 2em;
+        height: 2em;
+        bottom: .5em;
+        right: .5em;
+    }
+
 }
-*/
+
 /* Small devices (portrait tablets and large phones, 600px and up) */
-/*
+
 @media only screen and (min-width: 600px) {
     
+    button.topButton {
+        width: 2.5em;
+        height: 2.5em;
+        bottom: 1em;
+        right: 1em;
+    }
 }
-*/
+
 
 @media only screen and (min-width: 992px) {  /*For Laptops and Desktops*/
     
+    button.topButton {
+        width: 3.5em;
+        height: 3.5em;
+        bottom: 1.5em;
+        right: 1.5em;
+    }
+
     .menu-wrap {
         display: none;
     }

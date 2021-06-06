@@ -5,7 +5,6 @@ div.centerForm {
 }
 
 form {
-    width: 500px;
     margin: 1em;
     align-self: center;
     display: flex;
@@ -37,17 +36,29 @@ label {
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+
     fieldset select {
         width: 90%;
-    }   
+    }
+    
+    form {
+        width: 400px;
+    };
+
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
     
+    form {
+        width: 500px;
+    }
 }
 
 @media only screen and (min-width: 992px) { /*For Laptops and Desktops*/
     
+    form {
+        width: 900px;
+    }
 
 }

@@ -20,16 +20,29 @@ h2 {
 }
 
 .routeWelcome {
-    margin: 2em;
-    padding: 1em 2em;
+    border: .5em solid #8ad8ed;
 }
 
 .dromologia {
     margin: 1em;
     padding: 2em;
     display: flex;
-    justify-content: center;
     flex-flow: column;
+}
+
+.dromologia h3 {
+    align-self: center;
+    padding: 0 11.75em;
+    border-left: .5em solid #8ad8ed;
+}
+
+.dromologia h3:hover {
+    text-decoration: underline;
+    border-left-color: #134153;
+}
+
+.dromologia ul {
+    align-self: center;
 }
 
 .lines {
@@ -54,18 +67,44 @@ h2 {
     text-decoration: none;
 }
 
+.lines li a:active {
+    color: var(--subtitle-color);
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     
+    .dromologia h3 {
+        align-self: center;
+        padding: 0 7em;
+        border-left: .5em solid #8ad8ed;
+    }
+
+    .routeWelcome {
+        margin: 1em;
+        padding: 1em 2em;
+        border: 5px solid #8ad8ed;
+    }
+
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
     
+    .routeWelcome {
+        margin: 2em;
+        padding: 2em 4em;
+        border: .5em solid #8ad8ed;
+    }
+
 }
 
 @media only screen and (min-width: 992px) { /*For Laptops and Desktops*/
     
+    .routeWelcome {
+        margin: 2em;
+        padding: 2em 8em;
+    }
 
 }
 
