@@ -9,6 +9,10 @@ body {
     color: #134153;
 }
 
+h1 {
+    border-bottom: 1px solid #134153;
+}
+
 .main-title h2{
     background-color: #8ad8ed;
     padding: 1em;
@@ -102,8 +106,6 @@ thead th {
 /* tbody td {
     position: relative;
 } */
-
-
 
 tbody td:hover {
     /* background-color: rgba(46,130,139,0.2); */
