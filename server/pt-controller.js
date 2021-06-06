@@ -423,14 +423,14 @@ exports.findNearestStop = (req, res) => {
         host: 'smtp.ethereal.email',
         port: 587,
         auth: {
-            user: 'lorenz2@ethereal.email',
-            pass: 'qUPM5bUhNaJ9fSEXKW'
+            user: process.env.SMPT_USER,
+            pass: process.env.SMPT_PASS
         }
     });
 
     transporter.sendMail({
         from: email,
-        to: 'Recipient <up105934@upnet.gr>',
+        to: `Recipient <${process.env.RECEIVER_EMAIL}>`,
         subject: title,
         html: '<h1>'+title+'</h1><article>'+comments+'<p> Email από:'+sender+'</p></article>'
     }, (err, info) => {

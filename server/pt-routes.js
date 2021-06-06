@@ -29,7 +29,6 @@ router.get("/contact.html", ptController.htmlRedirection);
 
 router.get("/route/:routeID", ptController.specificRoutePage);
 
-//router.get("/createMap", ptController.createMap);
 
 router.get("/allStopsMap/:routeID", ptController.mapData);
 

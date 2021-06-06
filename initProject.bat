@@ -50,6 +50,9 @@ IF not exist ".\.env" (
     echo PASSWORD=>>.env
     echo DB_NAME=>>.env
     echo GOOGLE_KEY=>>.env
+    echo SMPT_USER=>>.env
+    echo SMPT_PASS=>>.env
+    echo RECEIVER_EMAIL=>>.env
     echo [32m"The .env file has been created"[0m
 )
 
