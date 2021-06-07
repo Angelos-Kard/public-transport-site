@@ -347,7 +347,7 @@ exports.findNearestStop = (req, res) => {
             }
             
             //FOR PRODUCTION
-            /*
+            //*
             fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?key=${API_KEY}&origins=${req.body.position}&mode=walking&destinations=${chunksOfResults[0].Coords}&language=el&units=metric`)
             .then(res => res.json())
             .then(resul => {
@@ -376,7 +376,7 @@ exports.findNearestStop = (req, res) => {
             //*/
 
             //FOR TESTING
-            //*
+            /*
             fetch("https://restcountries.eu/rest/v2/name/greece?fullText=true")
             .then(res => res.text())
             .then(resul => {
@@ -406,6 +406,7 @@ exports.findNearestStop = (req, res) => {
                 }
                 res.send(minStop);
             })
+            //*/
         }
     })
 }
