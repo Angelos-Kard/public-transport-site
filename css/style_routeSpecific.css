@@ -136,7 +136,7 @@ img {
 @media only screen and (min-width: 992px) { /*For Laptops and Desktops*/
     
     img {
-        width: 3%;
+        width: 2.5%;
         height: auto;
     }
 
